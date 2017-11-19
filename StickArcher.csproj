@@ -1,0 +1,411 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.20506</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{9EF5F4FB-FD2F-690C-4BF8-FFF006E1DC3C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AssemblyName>Assembly-CSharp</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
+    <CompilerResponseFile></CompilerResponseFile>
+    <UnityProjectType>Game:1</UnityProjectType>
+    <UnityBuildTarget>Android:13</UnityBuildTarget>
+    <UnityVersion>5.6.3f1</UnityVersion>
+    <RootNamespace></RootNamespace>
+    <LangVersion>4</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Temp\UnityVS_bin\Debug\</OutputPath>
+    <IntermediateOutputPath>Temp\UnityVS_obj\Debug\</IntermediateOutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DefineConstants>DEBUG;TRACE;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_5_6_3;UNITY_5_6;UNITY_5;UNITY_ANALYTICS;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_GENERICS;ENABLE_PVR_GI;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_RUNTIME_NAVMESH_BUILDING;ENABLE_SPRITERENDERER_FLIPPING;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;ENABLE_NATIVE_ARRAY;INCLUDE_DYNAMIC_GI;INCLUDE_GI;PLATFORM_SUPPORTS_MONO;INCLUDE_PUBNUB;ENABLE_PLAYMODE_TESTS_RUNNER;ENABLE_SCRIPTING_NEW_CSHARP_COMPILER;ENABLE_VIDEO;UNITY_ANDROID;ENABLE_SUBSTANCE;UNITY_ANDROID_API;ENABLE_EGL;ENABLE_NETWORK;ENABLE_RUNTIME_GI;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYWEBREQUEST;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;PLATFORM_SUPPORTS_ADS_ID;UNITY_CAN_SHOW_SPLASH_SCREEN;ENABLE_VR;ENABLE_UNITYADS_RUNTIME;UNITY_UNITYADS_API;ENABLE_MONO;NET_2_0_SUBSET;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_NATIVE_ARRAY_CHECKS;UNITY_TEAM_LICENSE;ENABLE_VSTU;UNITY_HAS_GOOGLEVR</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Temp\UnityVS_bin\Release\</OutputPath>
+    <IntermediateOutputPath>Temp\UnityVS_obj\Release\</IntermediateOutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DefineConstants>TRACE;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_5_6_3;UNITY_5_6;UNITY_5;UNITY_ANALYTICS;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_GENERICS;ENABLE_PVR_GI;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_RUNTIME_NAVMESH_BUILDING;ENABLE_SPRITERENDERER_FLIPPING;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;ENABLE_NATIVE_ARRAY;INCLUDE_DYNAMIC_GI;INCLUDE_GI;PLATFORM_SUPPORTS_MONO;INCLUDE_PUBNUB;ENABLE_PLAYMODE_TESTS_RUNNER;ENABLE_SCRIPTING_NEW_CSHARP_COMPILER;ENABLE_VIDEO;UNITY_ANDROID;ENABLE_SUBSTANCE;UNITY_ANDROID_API;ENABLE_EGL;ENABLE_NETWORK;ENABLE_RUNTIME_GI;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYWEBREQUEST;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;PLATFORM_SUPPORTS_ADS_ID;UNITY_CAN_SHOW_SPLASH_SCREEN;ENABLE_VR;ENABLE_UNITYADS_RUNTIME;UNITY_UNITYADS_API;ENABLE_MONO;NET_2_0_SUBSET;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_NATIVE_ARRAY_CHECKS;UNITY_TEAM_LICENSE;ENABLE_VSTU;UNITY_HAS_GOOGLEVR</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="mscorlib" />
+    <Reference Include="System" />
+    <Reference Include="System.XML" />
+    <Reference Include="System.Core" />
+    <Reference Include="Boo.Lang" />
+    <Reference Include="UnityScript.Lang" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="UnityEngine">
+      <HintPath>Library\UnityAssemblies\UnityEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>Library\UnityAssemblies\UnityEngine.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Networking">
+      <HintPath>Library\UnityAssemblies\UnityEngine.Networking.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.TestRunner">
+      <HintPath>Library\UnityAssemblies\UnityEngine.TestRunner.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework">
+      <HintPath>Library\UnityAssemblies\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Analytics">
+      <HintPath>Library\UnityAssemblies\UnityEngine.Analytics.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.HoloLens">
+      <HintPath>Library\UnityAssemblies\UnityEngine.HoloLens.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.VR">
+      <HintPath>Library\UnityAssemblies\UnityEngine.VR.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor">
+      <HintPath>Library\UnityAssemblies\UnityEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="DemiLib">
+      <HintPath>Assets\Qarth\Plugins\Demigiant\DemiLib\Core\DemiLib.dll</HintPath>
+    </Reference>
+    <Reference Include="DOTweenPro">
+      <HintPath>Assets\Qarth\Plugins\Demigiant\DOTweenPro\DOTweenPro.dll</HintPath>
+    </Reference>
+    <Reference Include="DOTween50">
+      <HintPath>Assets\Qarth\Plugins\Demigiant\DOTween\DOTween50.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib">
+      <HintPath>Assets\Qarth\Plugins\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Log">
+      <HintPath>Assets\Qarth\Plugins\Log.dll</HintPath>
+    </Reference>
+    <Reference Include="DOTween46">
+      <HintPath>Assets\Qarth\Plugins\Demigiant\DOTween\DOTween46.dll</HintPath>
+    </Reference>
+    <Reference Include="DOTween43">
+      <HintPath>Assets\Qarth\Plugins\Demigiant\DOTween\DOTween43.dll</HintPath>
+    </Reference>
+    <Reference Include="DOTween">
+      <HintPath>Assets\Qarth\Plugins\Demigiant\DOTween\DOTween.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Assets\Arrow.cs" />
+    <Compile Include="Assets\CheckState.cs" />
+    <Compile Include="Assets\Enemy.cs" />
+    <Compile Include="Assets\EnemyDamage.cs" />
+    <Compile Include="Assets\Qarth\Plugins\Demigiant\DOTweenPro\DOTweenAnimation.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Base\ByteBuffer\ByteBuffer.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Base\CommandNode\CommandGroup.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Base\CommandNode\CommandNode.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Base\CommandNode\CommandSequence.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Base\ConstDefine\DelegateDefine.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Base\ConstDefine\LayerDefine.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Base\DataStruct\BinaryHeap\BinaryHeap.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Base\DataStruct\BinaryHeap\IBinaryHeapElement.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Base\DataStruct\BinaryHeap\Test\BinaryHeapTest.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Base\DataStruct\BinarySearchTree\BinarySearchTree.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Base\DataStruct\BinarySearchTree\IBinarySearchTreeElement.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Base\DataStruct\BinarySearchTree\Test\BinarySearchTreeTest.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Base\DataStruct\IData.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Base\DataStruct\ITestUnit.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Base\DataStruct\List\IList.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Base\DataStruct\List\LinkedList.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Base\DataStruct\List\Stack.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Base\DataStruct\List\Test\LinkedListTest.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Base\DataStruct\Main.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Base\Disposable\DisposableObject.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Base\ERunner\ERunner.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Base\ExecuteNode\ExecuteNode.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Base\ExecuteNode\ExecuteNodeContainer.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Base\FSM\FSMState.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Base\FSM\FSMStateFactory.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Base\FSM\FSMStateMachine.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Base\FSM\FSMStateTransition.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Base\Helper\DateFormatHelper.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Base\Helper\GameObjectHelper.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Base\Helper\Helper.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Base\Helper\LogHelper.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Base\Pool\GameObjectPool.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Base\Pool\GameObjectPoolGroup.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Base\Pool\GameObjectPoolMgr.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Base\Pool\IGameObjectPoolStrategy.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Base\Pool\ListPool.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Base\Pool\ObjectPool.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Base\Pool\ObjectPoolObserver.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Base\Pool\PoolObjectComponent.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Base\ProjectConfig\ProjectPathConfig.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Base\RefCounter\RefCounter.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Base\Safety\EFloat.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Base\Safety\EInt.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Base\Singleton\ISingleton.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Base\Singleton\MonoSingleton.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Base\Singleton\TMonoSingleton.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Base\Singleton\TMonoSingletonAttribute.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Base\Singleton\TSingleton.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Engine\App\AppConfig.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Engine\Audio\AudioMgr.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Engine\Audio\AudioUnit.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Engine\Camera\CameraSizeAdjuster.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Engine\Component\AbstractActor.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Engine\Component\AbstractCom.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Engine\Component\AbstractMonoCom.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Engine\Component\ComOrderDefine.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Engine\Component\ICom.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Engine\DataRecord\DataRecord_Default.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Engine\DataRecord\IDataRecord.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Engine\Debugger\DebugLogger.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Engine\Debugger\Log.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Engine\Debugger\TimeDebugger.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Engine\Event\EngineEventID.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Engine\Event\EventRegisterHelper.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Engine\Event\EventSystem.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Engine\Gameplay\Skill\AbstractSkill.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Engine\Gameplay\Skill\AbstractSkillSystem.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Engine\Gameplay\Skill\ISkill.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Engine\Gameplay\Skill\ISkillReleaser.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Engine\Gameplay\Skill\SkillInfo.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Engine\IO\SerializeHelper.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Engine\Inputer\IInputter.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Engine\Inputer\KeyCodeEventInfo.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Engine\Inputer\KeyCodeTracker.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Engine\Inputer\KeyboardInputter.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Engine\Math\BezierUtils.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Engine\Math\MathHelper.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Engine\Math\RandomHelper.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Engine\Math\Rect2D.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Engine\Path\FileMgr.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Engine\Path\FilePath.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Engine\Path\PathHelper.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Engine\ResSystem\AssetDataTable\ABUnit.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Engine\ResSystem\AssetDataTable\AssetData.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Engine\ResSystem\AssetDataTable\AssetDataPackage.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Engine\ResSystem\AssetDataTable\AssetDataTable.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Engine\ResSystem\Core\IEnumeratorTask.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Engine\ResSystem\Core\Res\AbstractRes.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Engine\ResSystem\Core\Res\AssetBundleRes.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Engine\ResSystem\Core\Res\AssetRes.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Engine\ResSystem\Core\Res\BaseRes.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Engine\ResSystem\Core\Res\HotUpdateRes.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Engine\ResSystem\Core\Res\IRes.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Engine\ResSystem\Core\Res\InternalRes.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Engine\ResSystem\Core\Res\NetImageRes.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Engine\ResSystem\Core\Res\SceneRes.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Engine\ResSystem\Core\ResFactory.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Engine\ResSystem\Core\ResLoader\DefaultLoaderStrategy.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Engine\ResSystem\Core\ResLoader\IResLoader.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Engine\ResSystem\Core\ResLoader\IResLoaderStrategy.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Engine\ResSystem\Core\ResLoader\ResLoader.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Engine\ResSystem\Core\ResLoader\UILoaderStrategy.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Engine\ResSystem\Core\ResMgr.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Engine\ResSystem\ResUpdate\ResPackage.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Engine\ResSystem\ResUpdate\ResPackageHandler.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Engine\ResSystem\ResUpdate\ResUpdateConfig.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Engine\ResSystem\ResUpdate\ResUpdateMgr.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Engine\ResSystem\ResUpdate\ResUpdateRecord.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Engine\ResSystem\Tools\ABUnitHelper.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Engine\ResSystem\Tools\ResDownloader\HttpDownloaderMgr.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Engine\ResSystem\Tools\ResDownloader\IHttpDownloader.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Engine\ResSystem\Tools\ResDownloader\ResDownloader.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Engine\ResSystem\Tools\ResDownloader\WWWDownloader.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Engine\ResSystem\Tools\ResHolder\ResHolder.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Engine\ResSystem\Tools\ResHolder\ShaderFinder.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Engine\SceneMgr\SceneMgr.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Engine\TableMgr\Reader\DataStream.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Engine\TableMgr\Reader\DataStream_Txt.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Engine\TableMgr\Reader\TxtReader.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Engine\TableMgr\TDUniversallyTable.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Engine\TableMgr\TableConfig.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Engine\TableMgr\TableHelper.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Engine\TableMgr\TableMgr.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Engine\TableMgr\TableReadThreadWork.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Engine\Text\RegexHelper.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Engine\Thread\IThreadHandler.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Engine\Thread\MainThreadHandler.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Engine\Thread\Task\AbstractTask.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Engine\Thread\Task\CalculateResultTask.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Engine\Thread\Task\IThreadTask.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Engine\Thread\Task\ResultTask.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Engine\Thread\TaskLoop.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Engine\Thread\Tester\ThreadTaskTester.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Engine\Thread\ThreadHandler.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Engine\Thread\ThreadMgr.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Engine\Timer\Test\TimerTest.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Engine\Timer\TimeItem.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Engine\Timer\Timer.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Engine\Timer\TimerHelper.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Engine\Tools\CaptureHelper.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Engine\Tools\CaptureHelperTester.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Engine\UI\EngineUI.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Engine\UI\Helper\EffectMask.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Engine\UI\Helper\ResolutionHelper.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Engine\UI\Helper\SortingOrderObserver.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Engine\UI\Helper\TweenHelper.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Engine\UI\Helper\UIEffectHelper.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Engine\UI\Helper\UIFinder.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Engine\UI\Helper\UIHelper.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Engine\UI\Helper\UITools.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Engine\UI\PanelChain.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Engine\UI\PanelInfo.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Engine\UI\UGUI\AbstractPage.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Engine\UI\UGUI\AbstractPanel.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Engine\UI\UGUI\AbstractUIElement.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Engine\UI\UGUI\IView.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Engine\UI\UGUI\LuaPanel.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Engine\UI\UGUI\UIRoot.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Engine\UI\UIDataTable.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Engine\UI\UIMgr.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Engine\World\WorldMgr.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Engine\World\WorldRoot.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Engine\ZipMgr\ZipMgr.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Framework\App\AbstractApplicationMgr.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Framework\App\AppLoopMgr.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Framework\Client\AbstractClient.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Framework\Component\ColorConfig.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Framework\Component\FollowTarget.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Framework\Component\PositionTrigger.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Framework\Gameplay\IGameplay.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Framework\Guide\Command\AbstractGuideCommand.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Framework\Guide\Command\ButtonHackCommand.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Framework\Guide\Command\EventPauseCommand.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Framework\Guide\Command\GuideHandCommand.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Framework\Guide\Command\HighlightUICommand.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Framework\Guide\Command\OpenPanelCommand.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Framework\Guide\Command\PlayAudioCommand.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Framework\Guide\Guide.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Framework\Guide\GuideCommandFactory.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Framework\Guide\GuideMgr.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Framework\Guide\GuideStep.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Framework\Guide\GuideTriggerFactory.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Framework\Guide\Helper\GuideConfigParamProcess.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Framework\Guide\Helper\IUINodeFinder.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Framework\Guide\Helper\MonoFuncCall.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Framework\Guide\Helper\UINodeFinder.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Framework\Guide\RuntimeParam\IRuntimeParam.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Framework\Guide\RuntimeParam\RuntimeParamFactory.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Framework\Guide\Trigger\EmptyTrigger.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Framework\Guide\Trigger\EventTrigger.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Framework\Guide\Trigger\GuideTriggerHandler.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Framework\Guide\Trigger\IGuideTrigger.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Framework\Guide\Trigger\TopPanelTrigger.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Framework\Guide\Trigger\UINodeVisibleTrigger.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Framework\Guide\UI\GuideHandPanel.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Framework\Guide\UI\GuideHighlightMask.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Framework\Guide\UI\HighlightMaskPanel.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Framework\Guide\UI\RectTransformHelper.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Framework\I18\I18Mgr.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Framework\Memory\MemoryMgr.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Framework\Module\AbstractModuleMgr.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Framework\Module\Modules\AbstractModule.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Framework\Module\Modules\AbstractMonoModule.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Framework\Module\Modules\AbstractStartProcess.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Framework\Module\Modules\IModule.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Framework\Servers\AbstractServer.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Framework\Tables\Extend\Common\TDConstExtend.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Framework\Tables\Extend\Common\TDConstTableExtend.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Framework\Tables\Extend\Guide\TDGuideExtend.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Framework\Tables\Extend\Guide\TDGuideStepExtend.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Framework\Tables\Extend\Guide\TDGuideStepTableExtend.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Framework\Tables\Extend\Guide\TDGuideTableExtend.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Framework\Tables\Extend\Language\TDLanguageExtend.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Framework\Tables\Extend\Language\TDLanguageTableExtend.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Framework\Tables\Generate\Common\TDConst.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Framework\Tables\Generate\Common\TDConstTable.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Framework\Tables\Generate\Guide\TDGuide.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Framework\Tables\Generate\Guide\TDGuideStep.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Framework\Tables\Generate\Guide\TDGuideStepTable.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Framework\Tables\Generate\Guide\TDGuideTable.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Framework\Tables\Generate\Language\TDLanguage.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Framework\Tables\Generate\Language\TDLanguageTable.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Framework\UI\Component\Anim\BubbleAnim.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Framework\UI\Component\Anim\CircleRotateAnim.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Framework\UI\Component\Anim\CloudAnim.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Framework\UI\Component\Anim\FlipAnim.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Framework\UI\Component\Anim\PositionTweenBehaviour.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Framework\UI\Component\Anim\SpriteAnim.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Framework\UI\Component\Anim\StarAnim.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Framework\UI\Component\Anim\TweenBehaviour.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Framework\UI\Component\Button\PopButton.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Framework\UI\Component\Button\SoundButton.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Framework\UI\Component\Button\ToggleExtend.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Framework\UI\Component\Common\AsyncTexture.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Framework\UI\Component\Common\AutoDisableBehaviour.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Framework\UI\Component\Common\PositionAdjuster.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Framework\UI\Component\Common\RectTransformModify.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Framework\UI\Component\Common\SizeAdjuster.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Framework\UI\Component\Effect\AlphaGradient.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Framework\UI\Component\Effect\BookEffect.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Framework\UI\Component\Effect\Gradient.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Framework\UI\Component\Effect\TestMeshEffect.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Framework\UI\Component\Emoji\EmojiText.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Framework\UI\Component\ListView\InitOnStart.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Framework\UI\Component\ListView\ListView.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Framework\UI\Component\ListView\LoopScrollRect.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Framework\UI\Component\NetImageView\NetImageView.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Framework\UI\Component\PopupMenu\PopupAction.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Framework\UI\Component\PopupMenu\PopupMenu.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Framework\UI\Component\RaycastArea\RaycastArea.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Framework\UI\Component\SpriteHandler\SpritesData.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Framework\UI\Component\SpriteHandler\SpritesHandler.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Framework\UI\Component\StepProgressBar\MultiStepProgressBar.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Framework\UI\Component\StepProgressBar\ProgressPositionSetter.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Framework\UI\Component\StepProgressBar\StepProgressBar.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Framework\UI\Component\TimeLabel\TimeLabel.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Framework\UI\Component\TipsUI\TipsBehaviour.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Framework\UI\Component\TipsUI\TipsPanel.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Framework\UI\Component\UListView\IUListItemView.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Framework\UI\Component\UListView\IUListView.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Framework\UI\Component\UListView\ScrollRectProtect.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Framework\UI\Component\UListView\UGridListView.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Framework\UI\Component\UListView\UListItemView.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Framework\UI\Component\UListView\USimpleDiffSizeListView.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Framework\UI\Component\UListView\USimpleListView.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Framework\UI\Component\WorldUI\WorldUI.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Framework\UI\Component\WorldUI\WorldUIBindPos.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Framework\UI\Component\WorldUI\WorldUIBindTransform.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Framework\UI\Component\WorldUI\WorldUIBinding.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Framework\UI\Panels\FloatMessage\FloatMessage.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Framework\UI\Panels\FloatMessage\FloatMessageItem.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Framework\UI\Panels\FloatMessage\FloatMessagePanel.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Framework\UI\Panels\MaskPanel\MaskPanel.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Framework\UI\Panels\MsgBox\MsgBox.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Framework\UI\Panels\MsgBox\MsgBoxPanel.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Framework\UI\Transition\Actions\ColorFadeTransition.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Framework\UI\Transition\Actions\FadeInOut\FadeInOutAnim.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Framework\UI\Transition\Actions\FadeInOut\SwitchAnimShaderEffect.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Framework\UI\Transition\ITransitionAction.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Framework\UI\Transition\ITransitionHandler.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Framework\UI\Transition\ITransitionProgroess.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Framework\UI\Transition\TransitionHelper.cs" />
+    <Compile Include="Assets\Qarth\Scripts\Framework\UI\Transition\TransitionPanel.cs" />
+    <Compile Include="Assets\Shot.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\Qarth\Plugins\Demigiant\DOTween\DOTween.XML" />
+    <None Include="Assets\Qarth\Plugins\Demigiant\DOTween\DOTween43.xml" />
+    <None Include="Assets\Qarth\Plugins\Demigiant\DOTween\DOTween46.xml" />
+    <None Include="Assets\Qarth\Plugins\Demigiant\DOTween\DOTween50.xml" />
+    <None Include="Assets\Qarth\Plugins\Demigiant\DOTween\Editor\DOTweenEditor.XML" />
+    <None Include="Assets\Qarth\Plugins\Demigiant\DOTween\readme.txt" />
+    <None Include="Assets\Qarth\Plugins\Demigiant\DOTweenPro\DOTweenPro.XML" />
+    <None Include="Assets\Qarth\Plugins\Demigiant\DOTweenPro\Editor\DOTweenProEditor.XML" />
+    <None Include="Assets\Qarth\Plugins\Demigiant\DOTweenPro\readme.txt" />
+    <None Include="Assets\Qarth\Plugins\Demigiant\DemiLib\Core\DemiLib.xml" />
+    <None Include="Assets\Qarth\Plugins\Demigiant\DemiLib\Core\Editor\DemiEditor.xml" />
+    <None Include="Assets\Qarth\Plugins\Demigiant\readme_DOTweenPro.txt" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="GenerateTargetFrameworkMonikerAttribute" />
+</Project>

@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2017
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StickArcher", "StickArcher.csproj", "{9EF5F4FB-FD2F-690C-4BF8-FFF006E1DC3C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StickArcher.Editor", "StickArcher.Editor.csproj", "{42E8372C-A85B-B1E5-D11D-6A470293034E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9EF5F4FB-FD2F-690C-4BF8-FFF006E1DC3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9EF5F4FB-FD2F-690C-4BF8-FFF006E1DC3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9EF5F4FB-FD2F-690C-4BF8-FFF006E1DC3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9EF5F4FB-FD2F-690C-4BF8-FFF006E1DC3C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{42E8372C-A85B-B1E5-D11D-6A470293034E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42E8372C-A85B-B1E5-D11D-6A470293034E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42E8372C-A85B-B1E5-D11D-6A470293034E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42E8372C-A85B-B1E5-D11D-6A470293034E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
