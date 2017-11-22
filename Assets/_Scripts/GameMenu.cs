@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class GameMenu : MonoBehaviour {
     public int score = 0;
     public static GameMenu instance;
+    public GameObject gameover;
     public Text scoreText;
     // Use this for initialization
     void Start() {
@@ -23,6 +24,10 @@ public class GameMenu : MonoBehaviour {
     void Update() {
 
     }
+
+    public void GameOver() {
+        gameover.SetActive(true);
+    }
     public void GoHome() {
         SceneLoader.instance.LoadScene("StartMenu");
     }
@@ -38,8 +43,16 @@ public class GameMenu : MonoBehaviour {
         gameObject.SetActive(true);
     }
 
-    public void Press(float args) {
-        Time.timeScale = args;
+    public void Continue() {
+        Time.timeScale = 1;
+    }
+
+    public void Quit() {
+        Application.Quit();
+    }
+
+    public void Press() {
+        Time.timeScale = 0.0001f;
     }
     public void AddScore(int value) {
         score += value;

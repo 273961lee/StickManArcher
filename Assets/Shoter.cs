@@ -4,6 +4,7 @@ using UnityEngine;
 using DG.Tweening;
 
 public class Shoter : MonoBehaviour {
+    public GameObject headIcon;
     public Rigidbody2D[] rigs;
     public HingeJoint2D[] joints;
     public PolygonCollider2D[] collisions;
@@ -11,12 +12,12 @@ public class Shoter : MonoBehaviour {
     public SpriteRenderer lifeBar;
     //改变生命值
     public int ChangeLife(int value) {
+        life += value;
         if (life<0)
         {
             life = 0;
             Dead();
         }
-        life += value;
         lifeBar.size = new Vector2(life*0.1f,0.2f);
         return life;
     }
@@ -24,9 +25,15 @@ public class Shoter : MonoBehaviour {
     public bool isDead;
     public bool Dead() {
         SwithPhyics(false);
+        if (isPlayer)
+        {
+            GameMenu.instance.GameOver();
+        }
         if (!isPlayer)
         {
+            headIcon.transform.DOMoveY(transform.position.y+3,1.0f).OnComplete(()=>headIcon.GetComponent<SpriteRenderer>().DOFade(0,0.2f));
             CraetEnemy.instance.CreatNext();
+            GameMenu.instance.AddScore(10);
             Destroy(gameObject, 2.0f);
         }
         return isDead = true;

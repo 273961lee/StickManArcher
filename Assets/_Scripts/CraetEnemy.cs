@@ -5,17 +5,24 @@ using UnityEngine;
 public class CraetEnemy : MonoBehaviour {
     public static CraetEnemy instance;
     public GameObject enemy;
-    public Transform[] points;
+    public GameObject[] points=new GameObject[5];
 	// Use this for initialization
 	void Start () {
-        instance = this;
-	}
+        if (instance==null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 	
 	// Update is called once per frame
 	void Update () {
 		
 	}
     public void CreatNext() {
-        Instantiate(enemy,Vector3.zero,Quaternion.identity);
+        Instantiate(enemy,points[Random.Range(0,4)].transform.position,Quaternion.identity);
     }
 }
