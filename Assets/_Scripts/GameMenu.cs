@@ -9,8 +9,9 @@ public class GameMenu : MonoBehaviour {
     public static GameMenu instance;
     public GameObject gameover;
     public Text scoreText;
+    public Image powerBar;
     // Use this for initialization
-    void Start() {
+    void  Awake() {
         if (instance == null)
         {
             instance = this;

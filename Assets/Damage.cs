@@ -18,8 +18,11 @@ public class Damage : MonoBehaviour {
     {
         if (!collision.CompareTag(gameObject.tag))
         {
-            collision.GetComponent<Rigidbody2D>().simulated = false;
-            self.ChangeLife(-damageValue);
+            if (!collision.CompareTag("Border"))
+            {
+                collision.GetComponent<Rigidbody2D>().simulated = false;
+                self.ChangeLife(-damageValue);
+            }
         }
     }
 }

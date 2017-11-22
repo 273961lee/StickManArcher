@@ -12,6 +12,7 @@ public class Shoter : MonoBehaviour {
     public SpriteRenderer lifeBar;
     //改变生命值
     public int ChangeLife(int value) {
+        SoundBase.instance.PlayHitAU();
         life += value;
         if (life<0)
         {
@@ -24,6 +25,7 @@ public class Shoter : MonoBehaviour {
     //是否死亡
     public bool isDead;
     public bool Dead() {
+        SoundBase.instance.PlayDeadAU();
         SwithPhyics(false);
         if (isPlayer)
         {
@@ -60,6 +62,7 @@ public class Shoter : MonoBehaviour {
     public Vector3 aimDir;
     public Transform aimPoint;
     public Transform arch;
+    public Animator armMotion;
 
     public GameObject pool;
 
@@ -159,6 +162,7 @@ public class Shoter : MonoBehaviour {
             {
                 tempPoint.Clear();
                 tempPoint.Add(touchPoint);
+                armMotion.SetBool("ArmMotion",true);
             }
             if (Input.GetKey(KeyCode.Mouse0))
             {
@@ -169,6 +173,7 @@ public class Shoter : MonoBehaviour {
             {
                 tempPoint.Add(touchPoint);
                 ChangShotSpeed();
+                armMotion.SetBool("ArmMotion",false);
                 Shot();
                 print("all rise shot");
                 isTouch = false;

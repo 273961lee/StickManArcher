@@ -76,36 +76,39 @@
     <Reference Include="UnityEditor">
       <HintPath>Library\UnityAssemblies\UnityEditor.dll</HintPath>
     </Reference>
-    <Reference Include="DemiLib">
-      <HintPath>Assets\Qarth\Plugins\Demigiant\DemiLib\Core\DemiLib.dll</HintPath>
-    </Reference>
-    <Reference Include="DOTweenPro">
-      <HintPath>Assets\Qarth\Plugins\Demigiant\DOTweenPro\DOTweenPro.dll</HintPath>
-    </Reference>
-    <Reference Include="DOTween50">
-      <HintPath>Assets\Qarth\Plugins\Demigiant\DOTween\DOTween50.dll</HintPath>
-    </Reference>
     <Reference Include="ICSharpCode.SharpZipLib">
       <HintPath>Assets\Qarth\Plugins\ICSharpCode.SharpZipLib.dll</HintPath>
     </Reference>
     <Reference Include="Log">
       <HintPath>Assets\Qarth\Plugins\Log.dll</HintPath>
     </Reference>
-    <Reference Include="DOTween46">
-      <HintPath>Assets\Qarth\Plugins\Demigiant\DOTween\DOTween46.dll</HintPath>
-    </Reference>
-    <Reference Include="DOTween43">
-      <HintPath>Assets\Qarth\Plugins\Demigiant\DOTween\DOTween43.dll</HintPath>
+    <Reference Include="DemiLib">
+      <HintPath>Assets\Qarth\Plugins\Demigiant\DemiLib\Core\DemiLib.dll</HintPath>
     </Reference>
     <Reference Include="DOTween">
       <HintPath>Assets\Qarth\Plugins\Demigiant\DOTween\DOTween.dll</HintPath>
     </Reference>
+    <Reference Include="DOTween43">
+      <HintPath>Assets\Qarth\Plugins\Demigiant\DOTween\DOTween43.dll</HintPath>
+    </Reference>
+    <Reference Include="DOTween46">
+      <HintPath>Assets\Qarth\Plugins\Demigiant\DOTween\DOTween46.dll</HintPath>
+    </Reference>
+    <Reference Include="DOTween50">
+      <HintPath>Assets\Qarth\Plugins\Demigiant\DOTween\DOTween50.dll</HintPath>
+    </Reference>
+    <Reference Include="DOTweenPro">
+      <HintPath>Assets\Qarth\Plugins\Demigiant\DOTweenPro\DOTweenPro.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Arrow.cs" />
     <Compile Include="Assets\CheckState.cs" />
+    <Compile Include="Assets\Damage.cs" />
+    <Compile Include="Assets\DrawLines.cs" />
     <Compile Include="Assets\Enemy.cs" />
     <Compile Include="Assets\EnemyDamage.cs" />
+    <Compile Include="Assets\MyArrow.cs" />
+    <Compile Include="Assets\MyBowstring.cs" />
     <Compile Include="Assets\Qarth\Plugins\Demigiant\DOTweenPro\DOTweenAnimation.cs" />
     <Compile Include="Assets\Qarth\Scripts\Base\ByteBuffer\ByteBuffer.cs" />
     <Compile Include="Assets\Qarth\Scripts\Base\CommandNode\CommandGroup.cs" />
@@ -391,6 +394,21 @@
     <Compile Include="Assets\Qarth\Scripts\Framework\UI\Transition\TransitionHelper.cs" />
     <Compile Include="Assets\Qarth\Scripts\Framework\UI\Transition\TransitionPanel.cs" />
     <Compile Include="Assets\Shot.cs" />
+    <Compile Include="Assets\Shoter.cs" />
+    <Compile Include="Assets\SoundBase.cs" />
+    <Compile Include="Assets\_Scripts\ActiveEvent.cs" />
+    <Compile Include="Assets\_Scripts\ArmDir.cs" />
+    <Compile Include="Assets\_Scripts\Arrow.cs" />
+    <Compile Include="Assets\_Scripts\Bowstring.cs" />
+    <Compile Include="Assets\_Scripts\ColorSetter.cs" />
+    <Compile Include="Assets\_Scripts\CraetEnemy.cs" />
+    <Compile Include="Assets\_Scripts\GameMenu.cs" />
+    <Compile Include="Assets\_Scripts\MyPlayer.cs" />
+    <Compile Include="Assets\_Scripts\Player.cs" />
+    <Compile Include="Assets\_Scripts\PlayerGetHit.cs" />
+    <Compile Include="Assets\_Scripts\SceneLoader.cs" />
+    <Compile Include="Assets\_Scripts\ShotAnimation.cs" />
+    <Compile Include="Assets\_Scripts\UIManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Qarth\Plugins\Demigiant\DOTween\DOTween.XML" />
