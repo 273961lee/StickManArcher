@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameMenu : MonoBehaviour {
     public int score = 0;
@@ -29,7 +30,7 @@ public class GameMenu : MonoBehaviour {
         gameover.SetActive(true);
     }
     public void GoHome() {
-        SceneLoader.instance.LoadScene("StartMenu");
+        SceneManager.LoadScene("MainScene");
     }
 
     public void Close(GameObject which) {
@@ -37,7 +38,7 @@ public class GameMenu : MonoBehaviour {
     }
 
     public void Restart() {
-        SceneLoader.instance.LoadScene("MainScene");
+        SceneManager.LoadScene("MainScene");
     }
     public void ActiveSelf() {
         gameObject.SetActive(true);

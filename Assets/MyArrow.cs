@@ -37,6 +37,10 @@ public class MyArrow : MonoBehaviour {
     {
         if (!collision.CompareTag(gameObject.tag))
         {
+            if (collision.CompareTag("EnemyArrow"))
+            {
+                transform.SetParent(collision.transform);
+            }
             rig.simulated = false;
             Invoke("RemoveSelf",2.0f);
         }

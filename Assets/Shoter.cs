@@ -32,7 +32,6 @@ public class Shoter : MonoBehaviour {
         if (!isPlayer)
         {
             headIcon.transform.DOMoveY(transform.position.y+3,1.0f).OnComplete(()=>headIcon.GetComponent<SpriteRenderer>().DOFade(0,0.2f));
-            CraetEnemy.instance.CreatNext();
             GameMenu.instance.AddScore(10);
             Destroy(gameObject, 2.0f);
         }
@@ -94,7 +93,7 @@ public class Shoter : MonoBehaviour {
             Rigidbody2D tempRig = arrowTemp.GetComponent<Rigidbody2D>();
             shotDir = (player.transform.position - transform.position).normalized;
             tempRig.simulated = true;
-            tempRig.velocity = Random.Range(5,20) * shotDir+(Vector3)Random.insideUnitCircle;
+            tempRig.velocity = Random.Range(10,25) * shotDir+(Vector3)Random.insideUnitCircle;
             tempRig.transform.SetParent(pool.transform);
             arrowTemp = Instantiate(arrowPrefab, arrowTexture.transform.position, arrowTexture.transform.rotation);
             arrowTemp.GetComponent<SpriteRenderer>().flipX = true;
