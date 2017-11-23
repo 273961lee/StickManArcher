@@ -32,6 +32,17 @@ public class MyArrow : MonoBehaviour {
         {
             rig.centerOfMass = new Vector2(1f, 0.5f);
         }
+        if (blood == null)
+        {
+            blood = GetComponentInChildren<ParticleSystem>();
+        }
+    }
+    private void Start()
+    {
+        if (GameMenu.instance.isPowerFul&&gameObject.CompareTag("PlayerArrow"))
+        {
+            gameObject.AddComponent<PowerArrow>();
+        }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -40,7 +51,10 @@ public class MyArrow : MonoBehaviour {
             if (collision.CompareTag("EnemyArrow")||collision.CompareTag("PlayerArrow"))
             {
                 transform.SetParent(collision.transform);
-                blood.Play();
+                if (blood!=null)
+                {
+                    blood.Play();
+                }
             }
             rig.simulated = false;
             Invoke("RemoveSelf",2.0f);

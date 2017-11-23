@@ -10,6 +10,8 @@ public class GameMenu : MonoBehaviour {
     public GameObject gameover;
     public Text scoreText;
     public Image powerBar;
+    public float power;
+    public bool isPowerFul;
     // Use this for initialization
     void  Awake() {
         if (instance == null)
@@ -21,7 +23,28 @@ public class GameMenu : MonoBehaviour {
             Destroy(gameObject);
         }
     }
-
+    private void Start()
+    {
+        score = 0;
+        gameover.SetActive(false);
+        scoreText.text = "0";
+        powerBar.fillAmount = 0.02f;
+        power = 0;
+    }
+    public void PowerGrow() {
+        if (score%10==0)
+        {
+            power += 0.1f;
+        }
+        if (power>=1)
+        {
+            power = 1;
+            isPowerFul = true;
+        }
+        powerBar.fillAmount = power;
+        powerBar.color += new Color(0.1f,0f,0f);
+    }
+    
     // Update is called once per frame
     void Update() {
 
@@ -58,6 +81,7 @@ public class GameMenu : MonoBehaviour {
     }
     public void AddScore(int value) {
         score += value;
+        PowerGrow();
         scoreText.text = score.ToString();
     }
 }

@@ -50,15 +50,9 @@ public class Shoter : MonoBehaviour {
     public Vector3 shotDir;
 
     public bool isTouch=false;
-
     public Vector3 touchPoint;
 
-    public Vector3 offsetValue;
-
-    public Vector3 shotTarget;
-
     public GameObject arm;
-
     public Vector3 aimDir;
     public Transform aimPoint;
     public Transform arch;
@@ -67,17 +61,28 @@ public class Shoter : MonoBehaviour {
     public GameObject pool;
 
     public GameObject player;
-
+    public GameObject powerArrow;
     public void Shot() {
         Rigidbody2D tempRig = arrowTemp.GetComponent<Rigidbody2D>();
         print("get rig");
-        shotDir = (Camera.main.ScreenToWorldPoint(touchPoint)+new Vector3(0,0,10) - aimPoint.position).normalized;
+        shotDir = (Camera.main.ScreenToWorldPoint(touchPoint)+new Vector3(0,0,10)/*摄像机差值*/ - aimPoint.position).normalized;
         tempRig.simulated = true;
         tempRig.velocity = shotSpeed*shotDir;
         tempRig.transform.SetParent(pool.transform);
-        arrowTemp = Instantiate(arrowPrefab,arrowTexture.transform.position,arrowTexture.transform.rotation);
-        arrowTemp.transform.SetParent(arch);
+        if (GameMenu.instance.isPowerFul)
+        {
+            arrowTemp = Instantiate(powerArrow, arrowTexture.transform.position, arrowTexture.transform.rotation);
+            arrowTemp.transform.SetParent(arch);
+        }
+        else
+        {
+            arrowTemp = Instantiate(arrowPrefab, arrowTexture.transform.position, arrowTexture.transform.rotation);
+            arrowTemp.transform.SetParent(arch);
+        }
         print("shot");
+    }
+    public void Shot(bool defaultModle) {
+        Rigidbody2D tempRig = arrowTemp.GetComponent<Rigidbody2D>();
     }
     IEnumerator LoopShot() {
         /*float timer = 40 / GameMenu.instance.score;
@@ -180,7 +185,9 @@ public class Shoter : MonoBehaviour {
             }
         }
 	}
-
+    public void Aim(int args) {
+        arm.transform.LookAt(-aimDir);
+    }
     public void Aim() {
         arm.transform.LookAt(aimDir);
     }
