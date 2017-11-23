@@ -9,6 +9,7 @@ public class GameMenu : MonoBehaviour {
     public static GameMenu instance;
     public GameObject gameover;
     public Text scoreText;
+    public Text gameOverTips;
     public Image powerBar;
     public float power;
     public bool isPowerFul;
@@ -52,9 +53,14 @@ public class GameMenu : MonoBehaviour {
 
     public void GameOver() {
         gameover.SetActive(true);
+        gameOverTips.text = "You Got  " + score + "  score!   Try again?";
     }
     public void GoHome() {
         SceneManager.LoadScene("MainScene");
+    }
+
+    public void Share() {
+        //share score
     }
 
     public void Close(GameObject which) {
