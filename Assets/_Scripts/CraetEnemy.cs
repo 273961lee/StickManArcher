@@ -7,6 +7,7 @@ public class CraetEnemy : MonoBehaviour {
     public GameObject enemy;
     public float during;
     public GameObject[] points=new GameObject[5];
+    public int sign = 0;
 	// Use this for initialization
 	void Start () {
         if (instance==null)
@@ -36,6 +37,14 @@ public class CraetEnemy : MonoBehaviour {
         StartCoroutine(CreatTimer());
     }
     public void CreatNext() {
-        Instantiate(enemy,points[Random.Range(0,4)].transform.position,Quaternion.identity);
+        if (sign<points.Length-1)
+        {
+            sign++;
+        }
+        else
+        {
+            sign = 0;
+        }
+        Instantiate(enemy,points[sign].transform.position,Quaternion.identity);
     }
 }

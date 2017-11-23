@@ -46,7 +46,7 @@ public class MyArrow : MonoBehaviour {
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!collision.CompareTag(gameObject.tag))
+        if (!collision.CompareTag(gameObject.tag)&&!collision.CompareTag("Item"))
         {
             if (collision.CompareTag("EnemyArrow")||collision.CompareTag("PlayerArrow"))
             {

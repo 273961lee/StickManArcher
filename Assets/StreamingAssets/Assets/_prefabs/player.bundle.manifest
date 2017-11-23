@@ -1,0 +1,39 @@
+ManifestFileVersion: 0
+CRC: 1736500227
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 99c9c5e5a9d33a675f9c9c0ddd8a2b6a
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: dc0acd60bfb2474c0c522e8e4ff47f2d
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 50
+  Script: {instanceID: 0}
+- Class: 61
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: 06e2e9d54d15db247989d1944a10c799, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 81dd948d820f69445b63095423a56656, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 212
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+Assets:
+- Assets/_Prefabs/Player.prefab
+Dependencies:
+- C:/Users/lee/Documents/StickArcher/StickArcher/Assets/StreamingAssets/Assets/_prefabs/sitckman_0000_arrow.bundle

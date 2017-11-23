@@ -10,9 +10,14 @@ public class Shoter : MonoBehaviour {
     public PolygonCollider2D[] collisions;
     public int life;//生命值
     public SpriteRenderer lifeBar;
+    public GameObject[] items;
     //改变生命值
     public int ChangeLife(int value) {
         SoundBase.instance.PlayHitAU();
+        if (isPlayer)
+        {
+            Instantiate(items[0]);
+        }
         life += value;
         if (life<0)
         {
@@ -163,6 +168,7 @@ public class Shoter : MonoBehaviour {
             touchPoint = Input.mousePosition;
             aimDir = Camera.main.ScreenToWorldPoint(touchPoint);
             aimDir = new Vector3(aimDir.x,aimDir.y,0);
+            aimDir = new Vector3(Mathf.Clamp(aimDir.x,transform.position.x,int.MaxValue),aimDir.y,0);
             if (Input.GetKeyDown(KeyCode.Mouse0))
             {
                 tempPoint.Clear();

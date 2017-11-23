@@ -1,0 +1,23 @@
+ManifestFileVersion: 0
+CRC: 2770371886
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 6651c2ef3c3a25382273fdeacf0510ba
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 6ba68b0ee53cf80d57463158f6642213
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: b68930d0e88608a4bab5a0260b11e171, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+Assets:
+- Assets/_Prefabs/CreatPoint.prefab
+Dependencies:
+- C:/Users/lee/Documents/StickArcher/StickArcher/Assets/StreamingAssets/Assets/_prefabs/enemynew.bundle

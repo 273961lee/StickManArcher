@@ -1,0 +1,40 @@
+ManifestFileVersion: 0
+CRC: 1738503265
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 8d4acce1b94e9bdbca006f4b7005cd0f
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: c5f2d09da5d981abc0327f1ee2c809a9
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 50
+  Script: {instanceID: 0}
+- Class: 60
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: 0f8efd031d353b9418d2da92d6d3f1e6, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 198
+  Script: {instanceID: 0}
+- Class: 199
+  Script: {instanceID: 0}
+- Class: 212
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+Assets:
+- Assets/_Prefabs/ArrowPrefabs1.prefab
+Dependencies: []
