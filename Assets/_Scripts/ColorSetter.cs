@@ -6,11 +6,10 @@ using UnityEngine.SceneManagement;
 public class ColorSetter : MonoBehaviour {
     private SpriteRenderer rendColor;
     private Color32 color;
-    private float num=0;
-
     // Use this for initialization
     void Start () {
         rendColor = GetComponent<SpriteRenderer>();
+        ChangeColor();
     }
 	
 	// Update is called once per frame
@@ -19,11 +18,11 @@ public class ColorSetter : MonoBehaviour {
 	}
 
     public void ChangeColor() {
-        if (num>=1)
-        {
-            num = 0;
-        }
-        color = Color.HSVToRGB(num+=0.1f,0.5f,1f);
+        float value = Random.Range(0f, 1f);
+        print(value);
+        color = Color.HSVToRGB(value, 0.5f, 1f);
+        print("color set");
         rendColor.color = color;
+        print("color set scussful");
     }
 }

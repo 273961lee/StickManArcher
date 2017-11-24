@@ -8,22 +8,25 @@ public class MyArrow : MonoBehaviour {
     private Rigidbody2D rig;
     private SpriteRenderer selfPic;
     public ParticleSystem blood;
+    private LineRenderer line;
     // Use this for initialization
     private void FixedUpdate()
     {
         if (gameObject.CompareTag("EnemyArrow"))
         {
-            rig.AddTorque(Time.fixedDeltaTime * 0.3f, ForceMode2D.Impulse);
+            rig.AddTorque(Time.fixedDeltaTime *-Mathf.Atan2(rig.velocity.x,rig.velocity.y), ForceMode2D.Impulse);
         }
         else
         {
-            rig.AddTorque(Time.fixedDeltaTime * -0.3f, ForceMode2D.Impulse);
+            rig.AddTorque(Time.fixedDeltaTime * -Mathf.Atan2(rig.velocity.x, rig.velocity.y), ForceMode2D.Impulse);
+            //rig.AddTorque(Time.fixedDeltaTime * -0.3f, ForceMode2D.Impulse);
         }
     }
     private void OnEnable()
     {
         selfPic = GetComponent<SpriteRenderer>();
         rig = GetComponent<Rigidbody2D>();
+
         if (gameObject.CompareTag("EnemyArrow"))
         {
             rig.centerOfMass = new Vector2(0f, 0.5f);
@@ -48,9 +51,10 @@ public class MyArrow : MonoBehaviour {
     {
         if (!collision.CompareTag(gameObject.tag)&&!collision.CompareTag("Item"))
         {
+            transform.SetParent(collision.transform);
             if (collision.CompareTag("EnemyArrow")||collision.CompareTag("PlayerArrow"))
             {
-                transform.SetParent(collision.transform);
+                print("find father");
                 if (blood!=null)
                 {
                     blood.Play();
