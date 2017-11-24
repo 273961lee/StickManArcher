@@ -12,6 +12,7 @@ public class Shoter : MonoBehaviour {
     public SpriteRenderer lifeBar;//生命条
     public GameObject[] items;//可刷新道具
     public ParticleSystem arrowRain;//箭雨
+    public bool controlMode;
 
     private IEnumerator CraetItem()
     {
@@ -78,7 +79,6 @@ public class Shoter : MonoBehaviour {
 
     public GameObject player;
     public GameObject powerArrow;
-
     public void Shot() {
         Rigidbody2D tempRig = arrowTemp.GetComponent<Rigidbody2D>();
         //print("get rig");
@@ -98,8 +98,31 @@ public class Shoter : MonoBehaviour {
         }
         //print("shot");
     }
+    public Transform aimPointRightHand;
     public void Shot(bool defaultModle) {
-        Rigidbody2D tempRig = arrowTemp.GetComponent<Rigidbody2D>();
+        if (defaultModle==true)
+        {
+            Shot();
+        }
+        else
+        {
+            Rigidbody2D tempRig = arrowTemp.GetComponent<Rigidbody2D>();
+            shotDir = (aimPointRightHand.position-Camera.main.ScreenToWorldPoint(touchPoint) + new Vector3(0, 0, 10)).normalized;
+            tempRig.simulated = true;
+            tempRig.velocity = shotSpeed * shotDir*3f;
+            tempRig.transform.SetParent(pool.transform);
+            if (GameMenu.instance.isPowerFul)
+            {
+                arrowTemp = Instantiate(powerArrow, arrowTexture.transform.position, arrowTexture.transform.rotation);
+                arrowTemp.transform.SetParent(arch);
+            }
+            else
+            {
+                arrowTemp = Instantiate(arrowPrefab, arrowTexture.transform.position, arrowTexture.transform.rotation);
+                arrowTemp.transform.SetParent(arch);
+            }
+
+        }
     }
     IEnumerator LoopShot() {
         /*float timer = 40 / GameMenu.instance.score;
@@ -135,6 +158,7 @@ public class Shoter : MonoBehaviour {
     public GameObject arrowTexture;
 	// Use this for initialization
 	void Start () {
+        controlMode = PlayerPrefs.GetInt("controlMode").Equals(0);
         isPlayer = gameObject.CompareTag("Player");
         player = GameObject.FindGameObjectWithTag("Player");
         pool = GameObject.FindGameObjectWithTag("Border");
@@ -185,10 +209,13 @@ public class Shoter : MonoBehaviour {
             {
                 Dead();
             }
+            Mathf.Clamp(arm.transform.rotation.eulerAngles.x,60,-30);
             touchPoint = Input.mousePosition;
             aimDir = Camera.main.ScreenToWorldPoint(touchPoint);
             aimDir = new Vector3(aimDir.x,aimDir.y,0);
             aimDir = new Vector3(Mathf.Clamp(aimDir.x,transform.position.x,int.MaxValue),aimDir.y,0);
+            Ray2D ray = new Ray2D(touchPoint,aimPointRightHand.position);
+            aimDirRightHand = ray.direction;
             if (Input.GetKeyDown(KeyCode.Mouse0))
             {
                 tempPoint.Clear();
@@ -198,14 +225,14 @@ public class Shoter : MonoBehaviour {
             if (Input.GetKey(KeyCode.Mouse0))
             {
                 isTouch = true;
-                Aim();
+                Aim(controlMode);
             }
             if (Input.GetMouseButtonUp(0)&&isTouch)
             {
                 tempPoint.Add(touchPoint);
                 ChangShotSpeed();
                 armMotion.SetBool("ArmMotion",false);
-                Shot();
+                Shot(controlMode);
                 if (GameMenu.instance.score==100)
                 {
                     GameObject.FindGameObjectWithTag("BackGround").GetComponent<ColorSetter>().ChangeColor();
@@ -230,5 +257,16 @@ public class Shoter : MonoBehaviour {
     }
     public void Aim() {
         arm.transform.LookAt(aimDir);
+    }
+    public Vector3 aimDirRightHand;
+    public void Aim(bool defaultModle) {
+        if (defaultModle)
+        {
+            Aim();
+        }
+        else
+        {
+            arm.transform.eulerAngles = new Vector3(touchPoint.normalized.x*-90f,90,0);
+        }
     }
 }
