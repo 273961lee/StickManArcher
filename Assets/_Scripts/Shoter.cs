@@ -15,7 +15,7 @@ public class Shoter : MonoBehaviour {
     public bool controlMode;
     public GameObject[] arrows;
     public GameObject arrow;
-
+    public GameObject armM;//切换手臂模式
     private IEnumerator CraetItem()
     {
         float timer = GameMenu.instance.score;
@@ -304,7 +304,9 @@ public class Shoter : MonoBehaviour {
         }
         else
         {
-            arm.transform.eulerAngles = new Vector3(touchPoint.normalized.x*-90f,90,0);
+            arm.transform.SetParent(armM.transform);
+            //armM.transform.eulerAngles = new Vector3(touchPoint.normalized.x*-90f,90,0);
+            armM.transform.eulerAngles = new Vector3(touchPoint.x, 90, 0);
         }
     }
 }

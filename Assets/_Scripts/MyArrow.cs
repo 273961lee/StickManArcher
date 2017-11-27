@@ -14,11 +14,13 @@ public class MyArrow : MonoBehaviour {
     {
         if (gameObject.CompareTag("EnemyArrow"))
         {
-            rig.AddTorque(Time.fixedDeltaTime *-Mathf.Atan2(rig.velocity.x,rig.velocity.y), ForceMode2D.Impulse);
+            rig.AddTorque(/*Time.fixedDeltaTime **/-Mathf.Atan2(rig.velocity.x,rig.velocity.y), ForceMode2D.Impulse);
+            rig.angularDrag = 100;
         }
         else
         {
-            rig.AddTorque(Time.fixedDeltaTime * -Mathf.Atan2(rig.velocity.x, rig.velocity.y), ForceMode2D.Impulse);
+            rig.AddTorque(/*Time.fixedDeltaTime * -*/-Mathf.Atan2(rig.velocity.x, rig.velocity.y), ForceMode2D.Impulse);
+            rig.angularDrag = 100;
             //rig.AddTorque(Time.fixedDeltaTime * -0.3f, ForceMode2D.Impulse);
         }
     }
