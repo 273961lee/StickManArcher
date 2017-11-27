@@ -98,7 +98,7 @@ public class GameMenu : MonoBehaviour {
         PlayerPrefs.Save();
     }
     public void GoHome() {
-        SceneManager.LoadScene("MainScene");
+        SceneManager.LoadScene("StartMenu");
     }
 
     public void Share() {
@@ -121,7 +121,7 @@ public class GameMenu : MonoBehaviour {
     }
 
     public void Quit() {
-        Application.Quit();
+        SceneManager.LoadScene("StartMenu");
     }
 
     public void Press() {

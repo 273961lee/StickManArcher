@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class IceArrow : MonoBehaviour {
 
@@ -18,10 +19,13 @@ public class IceArrow : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("EnemyArrow")&&collision.GetComponent<Shoter>()!=null)
+        if (collision.CompareTag("EnemyArrow"))
         {
+            print("ICE SHOT");
+            collision.GetComponent<Damage>().self.Dead();
             icePaticle.Play();
-            Instantiate(ice,transform.position,transform.rotation);
+            GameObject tempIce= Instantiate(ice,collision.transform.parent.transform.position,Quaternion.identity);
+            tempIce.GetComponent<SpriteRenderer>().DOColor(new Color(0, 0, 0, 0), 0.8f).OnComplete(() => Destroy(tempIce.gameObject));
         }
     }
 }

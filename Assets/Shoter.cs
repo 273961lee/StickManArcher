@@ -223,6 +223,23 @@ public class Shoter : MonoBehaviour {
     }
     // Update is called once per frame
     void Update () {
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            arrow = arrows[0];
+            PlayerPrefs.SetInt("arrowType",0);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            arrow = arrows[1];
+            PlayerPrefs.SetInt("arrowType", 1);
+
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            arrow = arrows[2];
+            PlayerPrefs.SetInt("arrowType", 2);
+
+        }
         if (isPlayer&&!isDead)
         {
             //test function
