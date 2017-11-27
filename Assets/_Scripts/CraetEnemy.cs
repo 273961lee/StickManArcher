@@ -4,12 +4,20 @@ using UnityEngine;
 
 public class CraetEnemy : MonoBehaviour {
     public static CraetEnemy instance;
+    public bool isOn=true;
     public GameObject enemy;
     public float during;
     public GameObject[] points=new GameObject[5];
     public int sign = 0;
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    private void OnLevelWasLoaded(int level)
+    {
+        if (level!=-1)
+        {
+            isOn = true;
+        }
+    }
+    void Start () {
         if (instance==null)
         {
             instance = this;
@@ -45,6 +53,9 @@ public class CraetEnemy : MonoBehaviour {
         {
             sign = 0;
         }
-        Instantiate(enemy,points[sign].transform.position,Quaternion.identity);
+        if (isOn)
+        {
+            Instantiate(enemy, points[sign].transform.position, Quaternion.identity);
+        }
     }
 }

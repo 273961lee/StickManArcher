@@ -1,16 +1,13 @@
 fileFormatVersion: 2
-guid: ffafd54a04b8c2d438136a61d591dd13
-timeCreated: 1511758835
+guid: d4bc4b3250ae2b04583ed39651a335f0
+timeCreated: 1511763812
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName:
-    21300000: unnamed_0
-    21300002: unnamed_1
-    21300004: unnamed_2
+  fileIDToRecycleName: {}
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 0
+    enableMipMap: 1
     sRGBTexture: 1
     linearTexture: 0
     fadeOut: 0
@@ -33,11 +30,11 @@ TextureImporter:
     filterMode: -1
     aniso: -1
     mipBias: -1
-    wrapMode: 1
+    wrapMode: 0
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -47,7 +44,7 @@ TextureImporter:
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
-  textureType: 8
+  textureType: 0
   textureShape: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
@@ -79,46 +76,7 @@ TextureImporter:
     overridden: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: unnamed_0
-      rect:
-        serializedVersion: 2
-        x: 536
-        y: 301
-        width: 110
-        height: 110
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: unnamed_1
-      rect:
-        serializedVersion: 2
-        x: 665
-        y: 302
-        width: 105
-        height: 113
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: unnamed_2
-      rect:
-        serializedVersion: 2
-        x: 534
-        y: 203
-        width: 239
-        height: 78
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 22, y: 18, z: 22, w: 18}
-      outline: []
-      tessellationDetail: 0
+    sprites: []
     outline: []
   spritePackingTag: 
   userData: 

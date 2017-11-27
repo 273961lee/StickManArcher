@@ -13,6 +13,8 @@ public class Shoter : MonoBehaviour {
     public GameObject[] items;//可刷新道具
     public ParticleSystem arrowRain;//箭雨
     public bool controlMode;
+    public GameObject[] arrows;
+    public GameObject arrow;
 
     private IEnumerator CraetItem()
     {
@@ -42,6 +44,8 @@ public class Shoter : MonoBehaviour {
     //是否死亡
     public bool isDead;
     public bool Dead() {
+        print(gameObject);
+        print(life);
         SoundBase.instance.PlayDeadAU();
         SwichPhyics(false);
         if (isPlayer)
@@ -61,7 +65,7 @@ public class Shoter : MonoBehaviour {
     public List<Vector3> tempPoint = new List<Vector3>();
     public void ChangShotSpeed() {
         shotSpeed = 0;
-        shotSpeed = Vector3.Distance(tempPoint[0],tempPoint[1])*0.1f;
+        shotSpeed = Vector3.Distance(tempPoint[0],tempPoint[1])/Screen.width*35f;
     }
 
     public Vector3 shotDir;
@@ -88,19 +92,19 @@ public class Shoter : MonoBehaviour {
         tempRig.transform.SetParent(pool.transform);
         if (GameMenu.instance.isPowerFul)
         {
-            arrowTemp = Instantiate(powerArrow, arrowTexture.transform.position, arrowTexture.transform.rotation);
+            arrowTemp = Instantiate(arrow, arrowTexture.transform.position, arrowTexture.transform.rotation);
             arrowTemp.transform.SetParent(arch);
         }
         else
         {
-            arrowTemp = Instantiate(arrowPrefab, arrowTexture.transform.position, arrowTexture.transform.rotation);
+            arrowTemp = Instantiate(arrow, arrowTexture.transform.position, arrowTexture.transform.rotation);
             arrowTemp.transform.SetParent(arch);
         }
         //print("shot");
     }
     public Transform aimPointRightHand;
     public void Shot(bool defaultModle) {
-        if (defaultModle==true)
+        if (controlMode==true)
         {
             Shot();
         }
@@ -109,7 +113,7 @@ public class Shoter : MonoBehaviour {
             Rigidbody2D tempRig = arrowTemp.GetComponent<Rigidbody2D>();
             shotDir = (aimPointRightHand.position-Camera.main.ScreenToWorldPoint(touchPoint) + new Vector3(0, 0, 10)).normalized;
             tempRig.simulated = true;
-            tempRig.velocity = shotSpeed * shotDir*3f;
+            tempRig.velocity = shotSpeed * shotDir*2f;
             tempRig.transform.SetParent(pool.transform);
             if (GameMenu.instance.isPowerFul)
             {
@@ -118,7 +122,7 @@ public class Shoter : MonoBehaviour {
             }
             else
             {
-                arrowTemp = Instantiate(arrowPrefab, arrowTexture.transform.position, arrowTexture.transform.rotation);
+                arrowTemp = Instantiate(arrow, arrowTexture.transform.position, arrowTexture.transform.rotation);
                 arrowTemp.transform.SetParent(arch);
             }
 
@@ -158,8 +162,22 @@ public class Shoter : MonoBehaviour {
     public GameObject arrowTexture;
 	// Use this for initialization
 	void Start () {
-        controlMode = PlayerPrefs.GetInt("controlMode").Equals(0);
+        if (PlayerPrefs.GetInt("controlMod")==0)
+        {
+            controlMode = true;
+            print("右手控制模式");
+        }
+        else
+        {
+            controlMode = false;
+            print("左手控制模式");
+        }
         isPlayer = gameObject.CompareTag("Player");
+        if (isPlayer)
+        {
+            arrow = arrows[PlayerPrefs.GetInt("arrowType")];
+        }
+        print(PlayerPrefs.GetInt("arrowType"));
         player = GameObject.FindGameObjectWithTag("Player");
         pool = GameObject.FindGameObjectWithTag("Border");
         SwichPhyics(true);
@@ -178,10 +196,13 @@ public class Shoter : MonoBehaviour {
         foreach (HingeJoint2D item in joints)
         {
             item.enabled = !args;
-            item.useMotor = true;
-            JointMotor2D motor = item.motor;
-            motor.motorSpeed = Random.Range(-30,30);
-            item.motor = motor;
+            //if (!isPlayer)
+            //{
+            //    item.useMotor = !args;
+            //    JointMotor2D motor = item.motor;
+            //    motor.motorSpeed = Random.Range(-30, 30);
+            //    item.motor = motor;
+            //}
         }
         foreach (Rigidbody2D item in rigs)
         {
@@ -260,7 +281,7 @@ public class Shoter : MonoBehaviour {
     }
     public Vector3 aimDirRightHand;
     public void Aim(bool defaultModle) {
-        if (defaultModle)
+        if (controlMode)
         {
             Aim();
         }
