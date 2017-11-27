@@ -87,9 +87,13 @@ public class Shoter : MonoBehaviour {
         Rigidbody2D tempRig = arrowTemp.GetComponent<Rigidbody2D>();
         //print("get rig");
         shotDir = (Camera.main.ScreenToWorldPoint(touchPoint)+new Vector3(0,0,10)/*摄像机差值修正*/ - aimPoint.position).normalized;
-        tempRig.simulated = true;
-        tempRig.velocity = shotSpeed*shotDir;
         tempRig.transform.SetParent(pool.transform);
+        tempRig.simulated = true;
+        if (shotSpeed>20)
+        {
+            shotSpeed = 20;
+        }
+        tempRig.velocity = shotSpeed*shotDir;
         if (GameMenu.instance.isPowerFul)
         {
             arrowTemp = Instantiate(arrow, arrowTexture.transform.position, arrowTexture.transform.rotation);
@@ -113,11 +117,19 @@ public class Shoter : MonoBehaviour {
             Rigidbody2D tempRig = arrowTemp.GetComponent<Rigidbody2D>();
             shotDir = (aimPointRightHand.position-Camera.main.ScreenToWorldPoint(touchPoint) + new Vector3(0, 0, 10)).normalized;
             tempRig.simulated = true;
-            tempRig.velocity = shotSpeed * shotDir*2f;
-            tempRig.transform.SetParent(pool.transform);
+            if (shotSpeed>8)
+            {
+                shotSpeed = 8;
+            }
+            print(shotSpeed);
+            tempRig.velocity = shotSpeed * shotDir*3f;
+            if (pool!=null)
+            {
+                tempRig.transform.SetParent(pool.transform);
+            }
             if (GameMenu.instance.isPowerFul)
             {
-                arrowTemp = Instantiate(powerArrow, arrowTexture.transform.position, arrowTexture.transform.rotation);
+                arrowTemp = Instantiate(arrow, arrowTexture.transform.position, arrowTexture.transform.rotation);
                 arrowTemp.transform.SetParent(arch);
             }
             else
@@ -251,7 +263,7 @@ public class Shoter : MonoBehaviour {
             touchPoint = Input.mousePosition;
             aimDir = Camera.main.ScreenToWorldPoint(touchPoint);
             aimDir = new Vector3(aimDir.x,aimDir.y,0);
-            aimDir = new Vector3(Mathf.Clamp(aimDir.x,transform.position.x,int.MaxValue),aimDir.y,0);
+            //aimDir = new Vector3(Mathf.Clamp(aimDir.x,transform.position.x,int.MaxValue),aimDir.y,0);
             Ray2D ray = new Ray2D(touchPoint,aimPointRightHand.position);
             aimDirRightHand = ray.direction;
             if (Input.GetKeyDown(KeyCode.Mouse0))
@@ -304,9 +316,9 @@ public class Shoter : MonoBehaviour {
         }
         else
         {
-            arm.transform.SetParent(armM.transform);
+            //arm.transform.SetParent(armM.transform);
             //armM.transform.eulerAngles = new Vector3(touchPoint.normalized.x*-90f,90,0);
-            armM.transform.eulerAngles = new Vector3(touchPoint.x, 90, 0);
+            armM.transform.LookAt(aimDir);
         }
     }
 }
