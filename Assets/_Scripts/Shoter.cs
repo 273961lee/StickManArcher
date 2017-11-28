@@ -16,6 +16,38 @@ public class Shoter : MonoBehaviour {
     public GameObject[] arrows;
     public GameObject arrow;
     public GameObject armM;//切换手臂模式
+    public Transform aimPointRightHand;
+    public bool isDead;
+    public float shotSpeed;
+    public List<Vector3> tempPoint = new List<Vector3>();
+    public Vector3 shotDir;
+
+    public bool isTouch = false;
+    public Vector3 touchPoint;
+
+    public GameObject arm;
+    public Vector3 aimDir;
+    public Transform aimPoint;
+    public Transform arch;
+    public Animator armMotion;
+
+    public GameObject pool;
+
+    public GameObject player;
+    public GameObject powerArrow;
+    public bool isPlayer;
+
+    public GameObject arrowPrefab;
+    public GameObject arrowTemp;
+
+    public GameObject arrowTexture;
+
+    public Vector3 aimDirRightHand;
+    public float screenWight;
+    public float screenHight;
+    public GameObject midLine;
+    public bool isGamePlaying;
+
     private IEnumerator CraetItem()
     {
         float timer = GameMenu.instance.score;
@@ -42,7 +74,6 @@ public class Shoter : MonoBehaviour {
         return life;
     }
     //是否死亡
-    public bool isDead;
     public bool Dead() {
         print(gameObject);
         print(life);
@@ -61,37 +92,20 @@ public class Shoter : MonoBehaviour {
         return isDead = true;
     }
 
-    public float shotSpeed;
-    public List<Vector3> tempPoint = new List<Vector3>();
     public void ChangShotSpeed() {
         shotSpeed = 0;
         shotSpeed = Vector3.Distance(tempPoint[0],tempPoint[1])/Screen.width*35f;
     }
 
-    public Vector3 shotDir;
-
-    public bool isTouch=false;
-    public Vector3 touchPoint;
-
-    public GameObject arm;
-    public Vector3 aimDir;
-    public Transform aimPoint;
-    public Transform arch;
-    public Animator armMotion;
-
-    public GameObject pool;
-
-    public GameObject player;
-    public GameObject powerArrow;
     public void Shot() {
         Rigidbody2D tempRig = arrowTemp.GetComponent<Rigidbody2D>();
         //print("get rig");
         shotDir = (Camera.main.ScreenToWorldPoint(touchPoint)+new Vector3(0,0,10)/*摄像机差值修正*/ - aimPoint.position).normalized;
         tempRig.transform.SetParent(pool.transform);
         tempRig.simulated = true;
-        if (shotSpeed>20)
+        if (shotSpeed>22)
         {
-            shotSpeed = 20;
+            shotSpeed = 22;
         }
         tempRig.velocity = shotSpeed*shotDir;
         if (GameMenu.instance.isPowerFul)
@@ -106,9 +120,9 @@ public class Shoter : MonoBehaviour {
         }
         //print("shot");
     }
-    public Transform aimPointRightHand;
+    //shot mod ,true for right hand else is left hand
     public void Shot(bool defaultModle) {
-        if (controlMode==true)
+        if (defaultModle==true)
         {
             Shot();
         }
@@ -117,9 +131,9 @@ public class Shoter : MonoBehaviour {
             Rigidbody2D tempRig = arrowTemp.GetComponent<Rigidbody2D>();
             shotDir = (aimPointRightHand.position-Camera.main.ScreenToWorldPoint(touchPoint) + new Vector3(0, 0, 10)).normalized;
             tempRig.simulated = true;
-            if (shotSpeed>8)
+            if (shotSpeed>12)
             {
-                shotSpeed = 8;
+                shotSpeed = 12;
             }
             print(shotSpeed);
             tempRig.velocity = shotSpeed * shotDir*3f;
@@ -127,19 +141,20 @@ public class Shoter : MonoBehaviour {
             {
                 tempRig.transform.SetParent(pool.transform);
             }
-            if (GameMenu.instance.isPowerFul)
-            {
+            //if (GameMenu.instance.isPowerFul)
+            //{
+            //    arrowTemp = Instantiate(arrow, arrowTexture.transform.position, arrowTexture.transform.rotation);
+            //    arrowTemp.transform.SetParent(arch);
+            //}
+            //else
+            //{
                 arrowTemp = Instantiate(arrow, arrowTexture.transform.position, arrowTexture.transform.rotation);
                 arrowTemp.transform.SetParent(arch);
-            }
-            else
-            {
-                arrowTemp = Instantiate(arrow, arrowTexture.transform.position, arrowTexture.transform.rotation);
-                arrowTemp.transform.SetParent(arch);
-            }
+            //}
 
         }
     }
+    //enemy loopshot
     IEnumerator LoopShot() {
         /*float timer = 40 / GameMenu.instance.score;
         if (timer<1)
@@ -151,6 +166,7 @@ public class Shoter : MonoBehaviour {
         Shot(1);
         StartCoroutine(LoopShot());
     }
+    //enemy shot function
     public void Shot(int type) {
         if (type==1)
         {
@@ -165,15 +181,16 @@ public class Shoter : MonoBehaviour {
             arrowTemp.transform.SetParent(arch);
         }
     }
-
-    public bool isPlayer;
-
-    public GameObject arrowPrefab;
-    public GameObject arrowTemp;
-
-    public GameObject arrowTexture;
-	// Use this for initialization
-	void Start () {
+    private void OnLevelWasLoaded(int level)
+    {
+        if (level!=-1)
+        {
+            isGamePlaying = true;
+        }
+    }
+    // Use this for initialization
+    void Start () {
+        isGamePlaying = true;
         if (PlayerPrefs.GetInt("controlMod")==0)
         {
             controlMode = true;
@@ -184,14 +201,17 @@ public class Shoter : MonoBehaviour {
             controlMode = false;
             print("左手控制模式");
         }
+        screenWight = Screen.width;
+        screenHight = Screen.height;
         isPlayer = gameObject.CompareTag("Player");
         if (isPlayer)
         {
-            arrow = arrows[PlayerPrefs.GetInt("arrowType")];
+            arrow = arrows[2];
         }
         print(PlayerPrefs.GetInt("arrowType"));
         player = GameObject.FindGameObjectWithTag("Player");
-        pool = GameObject.FindGameObjectWithTag("Border");
+        pool = GameObject.FindGameObjectWithTag("Pool");
+        midLine = GameObject.Find("Line");
         SwichPhyics(true);
         if (!isPlayer)
         {
@@ -235,82 +255,118 @@ public class Shoter : MonoBehaviour {
     }
     // Update is called once per frame
     void Update () {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+        if (isGamePlaying)
         {
-            arrow = arrows[0];
-            PlayerPrefs.SetInt("arrowType",0);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            arrow = arrows[1];
-            PlayerPrefs.SetInt("arrowType", 1);
+            if (Input.GetKeyDown(KeyCode.Alpha1))
+            {
+                arrow = arrows[0];
+                PlayerPrefs.SetInt("arrowType", 0);
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha2))
+            {
+                arrow = arrows[1];
+                PlayerPrefs.SetInt("arrowType", 1);
 
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            arrow = arrows[2];
-            PlayerPrefs.SetInt("arrowType", 2);
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha3))
+            {
+                arrow = arrows[2];
+                PlayerPrefs.SetInt("arrowType", 2);
 
-        }
-        if (isPlayer&&!isDead)
-        {
-            //test function
-            if (Input.GetKeyDown(KeyCode.Q))
-            {
-                Dead();
             }
-            Mathf.Clamp(arm.transform.rotation.eulerAngles.x,60,-30);
-            touchPoint = Input.mousePosition;
-            aimDir = Camera.main.ScreenToWorldPoint(touchPoint);
-            aimDir = new Vector3(aimDir.x,aimDir.y,0);
-            //aimDir = new Vector3(Mathf.Clamp(aimDir.x,transform.position.x,int.MaxValue),aimDir.y,0);
-            Ray2D ray = new Ray2D(touchPoint,aimPointRightHand.position);
-            aimDirRightHand = ray.direction;
-            if (Input.GetKeyDown(KeyCode.Mouse0))
+            if (isPlayer && !isDead)
             {
-                tempPoint.Clear();
-                tempPoint.Add(touchPoint);
-                armMotion.SetBool("ArmMotion",true);
-            }
-            if (Input.GetKey(KeyCode.Mouse0))
-            {
-                isTouch = true;
-                Aim(controlMode);
-            }
-            if (Input.GetMouseButtonUp(0)&&isTouch)
-            {
-                tempPoint.Add(touchPoint);
-                ChangShotSpeed();
-                armMotion.SetBool("ArmMotion",false);
-                Shot(controlMode);
-                if (GameMenu.instance.score==100)
+                //test function
+                if (Input.GetKeyDown(KeyCode.Q))
                 {
-                    GameObject.FindGameObjectWithTag("BackGround").GetComponent<ColorSetter>().ChangeColor();
-                    /*arrowRain.Play();
-                    List<GameObject> enemys = new List<GameObject>();
-                    enemys.AddRange(GameObject.FindGameObjectsWithTag("EnemyArrow"));
-                    for (int i = 0; i < enemys.Count-1; i++)
-                    {
-                        if (enemys[i].GetComponent<Shoter>()!=null)
-                        {
-                            enemys[i].GetComponent<Shoter>().Dead();
-                        }
-                    }*/
+                    Dead();
                 }
-                //print("all rise shot");
-                isTouch = false;
+                //Mathf.Clamp(arm.transform.rotation.eulerAngles.x,60,-30);
+                touchPoint = Input.mousePosition;
+                if (controlMode)
+                {
+                    aimDir = Camera.main.ScreenToWorldPoint(touchPoint);
+                    aimDir = new Vector3(aimDir.x, aimDir.y, 0);
+                    if (aimDir.x > midLine.transform.position.x)
+                    {
+                        aimDir = new Vector3(Mathf.Clamp(aimDir.x, midLine.transform.position.x, int.MaxValue), aimDir.y, aimDir.z);
+                    }
+                }
+                else
+                {
+                    aimDir = Camera.main.ScreenToWorldPoint(touchPoint);
+                    aimDir = new Vector3(aimDir.x, aimDir.y, 0);
+                    if (aimDir.x < midLine.transform.position.x)
+                    {
+                        aimDir = new Vector3(Mathf.Clamp(aimDir.x, int.MinValue, midLine.transform.position.x), aimDir.y, aimDir.z);
+                    }
+                }
+                //aimDir = new Vector3(Mathf.Clamp(aimDir.x,transform.position.x,int.MaxValue),aimDir.y,0);
+                Ray2D ray = new Ray2D(touchPoint, aimPointRightHand.position);
+                aimDirRightHand = ray.direction;
+                if (Input.GetKeyDown(KeyCode.Mouse0))
+                {
+                    tempPoint.Clear();
+                    tempPoint.Add(touchPoint);
+                }
+                if (Input.GetKey(KeyCode.Mouse0))
+                {
+                    isTouch = true;
+                    if (aimDir.x < midLine.transform.position.x && !controlMode)
+                    {
+                        armMotion.SetBool("ArmMotion", true);
+                        Aim(false);
+                    }
+                    if (aimDir.x > midLine.transform.position.x && controlMode)
+                    {
+                        armMotion.SetBool("ArmMotion", true);
+                        Aim(true);
+                    }
+                }
+                if (Input.GetMouseButtonUp(0) && isTouch)
+                {
+                    tempPoint.Add(touchPoint);
+                    ChangShotSpeed();
+
+                    if (aimDir.x < midLine.transform.position.x && !controlMode)
+                    {
+                        armMotion.SetBool("ArmMotion", false);
+                        Shot(false);
+                    }
+                    if (aimDir.x > midLine.transform.position.x && controlMode)
+                    {
+                        armMotion.SetBool("ArmMotion", false);
+                        Shot(true);
+                    }
+                    if (GameMenu.instance.score == 100)
+                    {
+                        GameObject.FindGameObjectWithTag("BackGround").GetComponent<ColorSetter>().ChangeColor();
+                        /*arrowRain.Play();
+                        List<GameObject> enemys = new List<GameObject>();
+                        enemys.AddRange(GameObject.FindGameObjectsWithTag("EnemyArrow"));
+                        for (int i = 0; i < enemys.Count-1; i++)
+                        {
+                            if (enemys[i].GetComponent<Shoter>()!=null)
+                            {
+                                enemys[i].GetComponent<Shoter>().Dead();
+                            }
+                        }*/
+                    }
+                    //print("all rise shot");
+                    isTouch = false;
+                }
             }
         }
-	}
+
+    }
     public void Aim(int args) {
         arm.transform.LookAt(-aimDir);
     }
     public void Aim() {
         arm.transform.LookAt(aimDir);
     }
-    public Vector3 aimDirRightHand;
     public void Aim(bool defaultModle) {
-        if (controlMode)
+        if (defaultModle)
         {
             Aim();
         }

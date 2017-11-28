@@ -19,8 +19,12 @@ public class MyArrow : MonoBehaviour {
         }
         else
         {
-            rig.AddTorque(/*Time.fixedDeltaTime * -*/-Mathf.Atan2(rig.velocity.x, rig.velocity.y), ForceMode2D.Impulse);
-            rig.angularDrag = 100;
+            //rig.AddTorque(/*Time.fixedDeltaTime * -*/-Mathf.Atan2(rig.velocity.x, rig.velocity.y), ForceMode2D.Impulse);
+            //rig.angularDrag = 100;
+            if (rig!=null)
+            {
+                rig.transform.localRotation = Quaternion.LookRotation(rig.velocity);
+            }
             //rig.AddTorque(Time.fixedDeltaTime * -0.3f, ForceMode2D.Impulse);
         }
     }
@@ -28,7 +32,6 @@ public class MyArrow : MonoBehaviour {
     {
         selfPic = GetComponent<SpriteRenderer>();
         rig = GetComponent<Rigidbody2D>();
-
         if (gameObject.CompareTag("EnemyArrow"))
         {
             rig.centerOfMass = new Vector2(0f, 0.5f);
@@ -68,5 +71,14 @@ public class MyArrow : MonoBehaviour {
     }
     private void RemoveSelf() {
         selfPic.DOFade(0,1f).OnComplete(()=>Destroy(gameObject));
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+
+        if (other.CompareTag("Enemy"))
+        {
+            other.GetComponent<Shoter>().ChangeLife(-5);
+        }
     }
 }

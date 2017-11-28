@@ -18,8 +18,11 @@ public class GameMenu : MonoBehaviour {
     public bool closeSound;
     public AudioListener audioListener;
     public bool controlMod;
+    public GameObject arch;
+    public Transform archPos;
     [Multiline]
     public string link;
+    public GameObject[] guides;
     // Use this for initialization
     void  Awake() {
         if (instance == null)
@@ -62,8 +65,10 @@ public class GameMenu : MonoBehaviour {
     {
         if (!PlayerPrefs.HasKey("controlMod"))
         {
-            PlayerPrefs.SetInt("ControlMod",0);
+            PlayerPrefs.SetInt("controlMod",0);
         }
+        GameObject temp= Instantiate(guides[PlayerPrefs.GetInt("controlMod")]);
+        Destroy(temp,1.5f);
         score = 0;
         gameover.SetActive(false);
         scoreText.text = "0";
@@ -88,6 +93,11 @@ public class GameMenu : MonoBehaviour {
     void Update() {
 
     }
+    
+    public void ResetPlayerAche() {
+        arch.transform.eulerAngles = archPos.eulerAngles;
+        arch.transform.position = archPos.position;
+    }
 
     public void GameOver() {
         gameover.SetActive(true);
@@ -110,7 +120,7 @@ public class GameMenu : MonoBehaviour {
     }
 
     public void Restart() {
-        SceneManager.LoadScene("MainScene");
+        SceneManager.LoadScene("Loading");
     }
     public void ActiveSelf() {
         gameObject.SetActive(true);
@@ -118,6 +128,7 @@ public class GameMenu : MonoBehaviour {
 
     public void Continue() {
         Time.timeScale = 1;
+        ResetPlayerAche();
     }
 
     public void Quit() {

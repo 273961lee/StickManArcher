@@ -9,12 +9,23 @@ public class StartMenu : MonoBehaviour {
     public Text coinsNum;
     public GameObject[] arrowSet;
     private int index;
+    public GameObject settingMenu;
+    public GameObject shopMenu;
+
     public enum ArrowType
     {
         blackArrow=0,
         bloodArrow,
         iceArrow
     }
+    public enum MenuState
+    {
+        closed=0,
+        shop=1,
+        setting
+    }
+
+    public MenuState menuState = new MenuState();
     public ArrowType arrowType = new ArrowType();
 	// Use this for initialization
 	void Start () {
