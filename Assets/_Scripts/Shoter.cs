@@ -48,6 +48,8 @@ public class Shoter : MonoBehaviour {
     public GameObject midLine;
     public bool isGamePlaying;
 
+    public Animator enemyAnimtor;
+
     private IEnumerator CraetItem()
     {
         float timer = GameMenu.instance.score;
@@ -64,7 +66,15 @@ public class Shoter : MonoBehaviour {
     //改变生命值
     public int ChangeLife(int value) {
         SoundBase.instance.PlayHitAU();
+        if (!isPlayer&&life>0)
+        {
+            enemyAnimtor.SetBool("isHit", true);
+        }
         life += value;
+        if (life<0&&!isPlayer)
+        {
+            enemyAnimtor.enabled = false;
+        }
         if (life<0)
         {
             life = 0;
@@ -87,7 +97,7 @@ public class Shoter : MonoBehaviour {
         {
             headIcon.transform.DOMoveY(transform.position.y+3,1.0f).OnComplete(()=>headIcon.GetComponent<SpriteRenderer>().DOFade(0,0.2f));
             GameMenu.instance.AddScore(10);
-            Destroy(gameObject, 2.0f);
+            Destroy(gameObject, 1.0f);
         }
         return isDead = true;
     }
