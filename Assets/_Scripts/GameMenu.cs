@@ -44,12 +44,14 @@ public class GameMenu : MonoBehaviour {
         {
             PlayerPrefs.SetInt("controlMod",1);
             GameObject.FindGameObjectWithTag("Player").GetComponent<Shoter>().controlMode = false;
+            DrawLines.instance.isDefaultMod = false;
             print("切换控制模式");
         }
         else
         {
             PlayerPrefs.SetInt("controlMod",0);
             GameObject.FindGameObjectWithTag("Player").GetComponent<Shoter>().controlMode = true;
+            DrawLines.instance.isDefaultMod = true;
             print("切换控制模式");
         }
         PlayerPrefs.Save();
@@ -63,6 +65,10 @@ public class GameMenu : MonoBehaviour {
 
     private void Start()
     {
+        GameObject tempPlayer = GameObject.FindGameObjectWithTag("Player");
+        audioListener = Camera.main.GetComponent<AudioListener>();
+        arch = tempPlayer.transform.Find("ArmRM").gameObject;
+        archPos = tempPlayer.transform.Find("ArchPos");
         if (!PlayerPrefs.HasKey("controlMod"))
         {
             PlayerPrefs.SetInt("controlMod",0);

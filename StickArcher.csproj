@@ -102,13 +102,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\CheckState.cs" />
-    <Compile Include="Assets\Damage.cs" />
-    <Compile Include="Assets\DrawLines.cs" />
-    <Compile Include="Assets\Enemy.cs" />
-    <Compile Include="Assets\EnemyDamage.cs" />
-    <Compile Include="Assets\MyArrow.cs" />
-    <Compile Include="Assets\MyBowstring.cs" />
+    <Compile Include="Assets\LoadingSlider.cs" />
+    <Compile Include="Assets\MyArrowNew.cs" />
+    <Compile Include="Assets\MyLoadingEvent.cs" />
     <Compile Include="Assets\Qarth\Plugins\Demigiant\DOTweenPro\DOTweenAnimation.cs" />
     <Compile Include="Assets\Qarth\Scripts\Base\ByteBuffer\ByteBuffer.cs" />
     <Compile Include="Assets\Qarth\Scripts\Base\CommandNode\CommandGroup.cs" />
@@ -393,22 +389,34 @@
     <Compile Include="Assets\Qarth\Scripts\Framework\UI\Transition\ITransitionProgroess.cs" />
     <Compile Include="Assets\Qarth\Scripts\Framework\UI\Transition\TransitionHelper.cs" />
     <Compile Include="Assets\Qarth\Scripts\Framework\UI\Transition\TransitionPanel.cs" />
-    <Compile Include="Assets\Shot.cs" />
-    <Compile Include="Assets\Shoter.cs" />
-    <Compile Include="Assets\SoundBase.cs" />
     <Compile Include="Assets\_Scripts\ActiveEvent.cs" />
     <Compile Include="Assets\_Scripts\ArmDir.cs" />
     <Compile Include="Assets\_Scripts\Arrow.cs" />
     <Compile Include="Assets\_Scripts\Bowstring.cs" />
+    <Compile Include="Assets\_Scripts\CheckState.cs" />
     <Compile Include="Assets\_Scripts\ColorSetter.cs" />
     <Compile Include="Assets\_Scripts\CraetEnemy.cs" />
+    <Compile Include="Assets\_Scripts\Damage.cs" />
+    <Compile Include="Assets\_Scripts\DrawLines.cs" />
+    <Compile Include="Assets\_Scripts\Enemy.cs" />
+    <Compile Include="Assets\_Scripts\EnemyDamage.cs" />
     <Compile Include="Assets\_Scripts\GameMenu.cs" />
+    <Compile Include="Assets\_Scripts\IceArrow.cs" />
+    <Compile Include="Assets\_Scripts\Items.cs" />
+    <Compile Include="Assets\_Scripts\MyArrow.cs" />
+    <Compile Include="Assets\_Scripts\MyBowstring.cs" />
     <Compile Include="Assets\_Scripts\MyPlayer.cs" />
     <Compile Include="Assets\_Scripts\Player.cs" />
     <Compile Include="Assets\_Scripts\PlayerGetHit.cs" />
+    <Compile Include="Assets\_Scripts\PowerArrow.cs" />
     <Compile Include="Assets\_Scripts\SceneLoader.cs" />
+    <Compile Include="Assets\_Scripts\Shot.cs" />
     <Compile Include="Assets\_Scripts\ShotAnimation.cs" />
+    <Compile Include="Assets\_Scripts\Shoter.cs" />
+    <Compile Include="Assets\_Scripts\SoundBase.cs" />
+    <Compile Include="Assets\_Scripts\StartMenu.cs" />
     <Compile Include="Assets\_Scripts\UIManager.cs" />
+    <Compile Include="Assets\_Temp\TempPlayer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Qarth\Plugins\Demigiant\DOTween\DOTween.XML" />

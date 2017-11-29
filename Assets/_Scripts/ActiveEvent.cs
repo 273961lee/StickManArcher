@@ -3,15 +3,30 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ActiveEvent : MonoBehaviour {
-
+    private GameObject player;
+    private void OnLevelWasLoaded(int level)
+    {
+        if (level!=-1)
+        {
+            player = GameObject.FindGameObjectWithTag("Player");
+        }
+    }
     private void OnEnable()
     {
         print("enable here");
-        GameObject.FindGameObjectWithTag("Player").GetComponent<Shoter>().isGamePlaying=false;
+        if (player!=null)
+        {
+            player.GetComponent<Shoter>().isGamePlaying = false;
+
+        }
     }
     private void OnDisable()
     {
-        GameObject.FindGameObjectWithTag("Player").GetComponent<Shoter>().isGamePlaying = true;
+        if (player!=null)
+        {
+            player.GetComponent<Shoter>().isGamePlaying = true;
+
+        }
         GameMenu.instance.ResetPlayerAche();
     }
     // Use this for initialization

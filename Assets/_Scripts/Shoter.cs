@@ -101,6 +101,7 @@ public class Shoter : MonoBehaviour {
         Rigidbody2D tempRig = arrowTemp.GetComponent<Rigidbody2D>();
         //print("get rig");
         shotDir = (Camera.main.ScreenToWorldPoint(touchPoint)+new Vector3(0,0,10)/*摄像机差值修正*/ - aimPoint.position).normalized;
+        Debug.DrawLine(arch.position,shotDir,Color.red,3.0f);
         tempRig.transform.SetParent(pool.transform);
         tempRig.simulated = true;
         if (shotSpeed>22)
@@ -255,6 +256,7 @@ public class Shoter : MonoBehaviour {
     }
     // Update is called once per frame
     void Update () {
+        Debug.DrawLine(arch.position,aimDir,Color.green);
         if (isGamePlaying)
         {
             if (Input.GetKeyDown(KeyCode.Alpha1))
