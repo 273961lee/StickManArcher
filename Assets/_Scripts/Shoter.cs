@@ -142,12 +142,12 @@ public class Shoter : MonoBehaviour {
             Rigidbody2D tempRig = arrowTemp.GetComponent<Rigidbody2D>();
             shotDir = (aimPointRightHand.position-Camera.main.ScreenToWorldPoint(touchPoint) + new Vector3(0, 0, 10)).normalized;
             tempRig.simulated = true;
-            if (shotSpeed>12)
+            if (shotSpeed>20)
             {
-                shotSpeed = 12;
+                shotSpeed = 20;
             }
             print(shotSpeed);
-            tempRig.velocity = shotSpeed * shotDir*3f;
+            tempRig.velocity = shotSpeed * shotDir*5f;
             if (pool!=null)
             {
                 tempRig.transform.SetParent(pool.transform);
@@ -202,7 +202,7 @@ public class Shoter : MonoBehaviour {
     // Use this for initialization
     void Start () {
         isGamePlaying = true;
-        if (PlayerPrefs.GetInt("controlMod")==0)
+        if (PlayerPrefs.GetInt(PlayerData.CONTROL_MOD)==0)
         {
             controlMode = true;
             print("右手控制模式");
@@ -217,9 +217,9 @@ public class Shoter : MonoBehaviour {
         isPlayer = gameObject.CompareTag("Player");
         if (isPlayer)
         {
-            arrow = arrows[2];
+            arrow = arrows[PlayerPrefs.GetInt(PlayerData.ARROW_TYPE)];
         }
-        print(PlayerPrefs.GetInt("arrowType"));
+        print(PlayerPrefs.GetInt(PlayerData.ARROW_TYPE));
         player = GameObject.FindGameObjectWithTag("Player");
         pool = GameObject.FindGameObjectWithTag("Pool");
         midLine = GameObject.Find("Line");
@@ -272,18 +272,18 @@ public class Shoter : MonoBehaviour {
             if (Input.GetKeyDown(KeyCode.Alpha1))
             {
                 arrow = arrows[0];
-                PlayerPrefs.SetInt("arrowType", 0);
+                PlayerPrefs.SetInt(PlayerData.ARROW_TYPE, 0);
             }
             if (Input.GetKeyDown(KeyCode.Alpha2))
             {
                 arrow = arrows[1];
-                PlayerPrefs.SetInt("arrowType", 1);
+                PlayerPrefs.SetInt(PlayerData.ARROW_TYPE, 1);
 
             }
             if (Input.GetKeyDown(KeyCode.Alpha3))
             {
                 arrow = arrows[2];
-                PlayerPrefs.SetInt("arrowType", 2);
+                PlayerPrefs.SetInt(PlayerData.ARROW_TYPE, 2);
 
             }
             if (isPlayer && !isDead)

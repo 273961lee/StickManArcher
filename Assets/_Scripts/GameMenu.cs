@@ -40,16 +40,16 @@ public class GameMenu : MonoBehaviour {
     }
 
     public void SwitchControlMod() {
-        if (PlayerPrefs.GetInt("controlMod")==0)
+        if (PlayerPrefs.GetInt(PlayerData.CONTROL_MOD)==0)
         {
-            PlayerPrefs.SetInt("controlMod",1);
+            PlayerPrefs.SetInt(PlayerData.CONTROL_MOD,1);
             GameObject.FindGameObjectWithTag("Player").GetComponent<Shoter>().controlMode = false;
             DrawLines.instance.isDefaultMod = false;
             print("切换控制模式");
         }
         else
         {
-            PlayerPrefs.SetInt("controlMod",0);
+            PlayerPrefs.SetInt(PlayerData.CONTROL_MOD,0);
             GameObject.FindGameObjectWithTag("Player").GetComponent<Shoter>().controlMode = true;
             DrawLines.instance.isDefaultMod = true;
             print("切换控制模式");
@@ -69,11 +69,11 @@ public class GameMenu : MonoBehaviour {
         audioListener = Camera.main.GetComponent<AudioListener>();
         arch = tempPlayer.transform.Find("ArmRM").gameObject;
         archPos = tempPlayer.transform.Find("ArchPos");
-        if (!PlayerPrefs.HasKey("controlMod"))
+        if (!PlayerPrefs.HasKey(PlayerData.CONTROL_MOD))
         {
-            PlayerPrefs.SetInt("controlMod",0);
+            PlayerPrefs.SetInt(PlayerData.CONTROL_MOD, 0);
         }
-        GameObject temp= Instantiate(guides[PlayerPrefs.GetInt("controlMod")]);
+        GameObject temp= Instantiate(guides[PlayerPrefs.GetInt(PlayerData.CONTROL_MOD)]);
         Destroy(temp,1.5f);
         score = 0;
         gameover.SetActive(false);
@@ -110,7 +110,8 @@ public class GameMenu : MonoBehaviour {
         CraetEnemy.instance.isOn = false;
         gameOverTips.text = "You Got  " + score + "  score!   Try again?";
         coins = (int)(score*0.1f);
-        PlayerPrefs.SetInt("coins",coins);
+        int tempCoin = PlayerPrefs.GetInt(PlayerData.COINS);
+        PlayerPrefs.SetInt(PlayerData.COINS,coins+tempCoin);
         PlayerPrefs.Save();
     }
     public void GoHome() {

@@ -102,6 +102,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\AdvancedPlayerPrefsWindow\DemoScene\GUIView.cs" />
     <Compile Include="Assets\EnemyGetHit.cs" />
     <Compile Include="Assets\LoadingSlider.cs" />
     <Compile Include="Assets\MyArrowNew.cs" />
@@ -408,6 +409,7 @@
     <Compile Include="Assets\_Scripts\MyBowstring.cs" />
     <Compile Include="Assets\_Scripts\MyPlayer.cs" />
     <Compile Include="Assets\_Scripts\Player.cs" />
+    <Compile Include="Assets\_Scripts\PlayerData.cs" />
     <Compile Include="Assets\_Scripts\PlayerGetHit.cs" />
     <Compile Include="Assets\_Scripts\PowerArrow.cs" />
     <Compile Include="Assets\_Scripts\SceneLoader.cs" />
