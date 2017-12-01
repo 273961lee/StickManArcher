@@ -68,7 +68,8 @@ public class GameMenu : MonoBehaviour {
         GameObject tempPlayer = GameObject.FindGameObjectWithTag("Player");
         audioListener = Camera.main.GetComponent<AudioListener>();
         arch = tempPlayer.transform.Find("ArmRM").gameObject;
-        archPos = tempPlayer.transform.Find("ArchPos");
+        archPos = tempPlayer.transform.root.Find("ArchPos");
+        print(archPos.name);
         if (!PlayerPrefs.HasKey(PlayerData.CONTROL_MOD))
         {
             PlayerPrefs.SetInt(PlayerData.CONTROL_MOD, 0);
@@ -107,11 +108,12 @@ public class GameMenu : MonoBehaviour {
 
     public void GameOver() {
         gameover.SetActive(true);
+        GameAnalyticsSDK.GameAnalytics.NewDesignEvent("PlayerScore",score);
         CraetEnemy.instance.isOn = false;
         gameOverTips.text = "You Got  " + score + "  score!   Try again?";
         coins = (int)(score*0.1f);
-        int tempCoin = PlayerPrefs.GetInt(PlayerData.COINS);
-        PlayerPrefs.SetInt(PlayerData.COINS,coins+tempCoin);
+        int tempCoin = PlayerPrefs.GetInt(PlayerData.COINS)+coins;
+        PlayerPrefs.SetInt(PlayerData.COINS,tempCoin);
         PlayerPrefs.Save();
     }
     public void GoHome() {
@@ -120,6 +122,7 @@ public class GameMenu : MonoBehaviour {
 
     public void Share() {
         //share score
+        Application.OpenURL(link);
     }
 
     public void Close(GameObject which) {

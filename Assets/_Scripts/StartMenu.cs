@@ -4,6 +4,7 @@ using UnityEngine;
 using Qarth;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using GameAnalyticsSDK;
 
 public class StartMenu : MonoBehaviour {
     public EInt coins;
@@ -30,6 +31,7 @@ public class StartMenu : MonoBehaviour {
     public ArrowType arrowType = new ArrowType();
 	// Use this for initialization
 	void Start () {
+        GameAnalytics.NewDesignEvent("start log",1);
         UpdateCoins();
         GetArrowType();
         UpdateShop();

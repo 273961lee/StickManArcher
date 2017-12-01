@@ -115,6 +115,18 @@
     <Reference Include="SyntaxTree.VisualStudio.Unity.Bridge">
       <HintPath>Library\UnityAssemblies\SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
     </Reference>
+    <Reference Include="Google.IOSResolver_v1.2.59.0">
+      <HintPath>Assets\PlayServicesResolver\Editor\Google.IOSResolver_v1.2.59.0.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.JarResolver_v1.2.59.0">
+      <HintPath>Assets\PlayServicesResolver\Editor\Google.JarResolver_v1.2.59.0.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.VersionHandler">
+      <HintPath>Assets\PlayServicesResolver\Editor\Google.VersionHandler.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.VersionHandlerImpl_v1.2.59.0">
+      <HintPath>Assets\PlayServicesResolver\Editor\Google.VersionHandlerImpl_v1.2.59.0.dll</HintPath>
+    </Reference>
     <Reference Include="ICSharpCode.SharpZipLib">
       <HintPath>Assets\Qarth\Plugins\ICSharpCode.SharpZipLib.dll</HintPath>
     </Reference>
@@ -158,6 +170,20 @@
   <ItemGroup>
     <Compile Include="Assets\AdvancedPlayerPrefsWindow\Editor\APPWindow.cs" />
     <Compile Include="Assets\AdvancedPlayerPrefsWindow\Editor\Plist.cs" />
+    <Compile Include="Assets\GameAnalytics\Editor\GA_AssetPostprocessor.cs" />
+    <Compile Include="Assets\GameAnalytics\Editor\GA_AutoRun.cs" />
+    <Compile Include="Assets\GameAnalytics\Editor\GA_ContinuationManager.cs" />
+    <Compile Include="Assets\GameAnalytics\Editor\GA_EditorUtilities.cs" />
+    <Compile Include="Assets\GameAnalytics\Editor\GA_Menu.cs" />
+    <Compile Include="Assets\GameAnalytics\Editor\GA_PostprocessBuild.cs" />
+    <Compile Include="Assets\GameAnalytics\Editor\GA_SettingsInspector.cs" />
+    <Compile Include="Assets\GameAnalytics\Editor\GA_SignUp.cs" />
+    <Compile Include="Assets\GameAnalytics\Editor\GA_UpdateWindow.cs" />
+    <Compile Include="Assets\GameAnalytics\Editor\GameAnalyticsInspector.cs" />
+    <Compile Include="Assets\GameAnalytics\Plugins\Playmaker\Editor\PlayMakerPresenceCheck.cs" />
+    <Compile Include="Assets\GameAnalytics\Plugins\Playmaker\Editor\SendProgressionEventActionEditor.cs" />
+    <Compile Include="Assets\GameAnalytics\Plugins\Playmaker\Editor\SendResourceEventActionEditor.cs" />
+    <Compile Include="Assets\GameAnalytics\Plugins\Playmaker\Editor\SetGenderActionEditor.cs" />
     <Compile Include="Assets\Qarth\Plugins\Demigiant\DOTweenPro\Editor\DOTweenAnimationInspector.cs" />
     <Compile Include="Assets\Qarth\Scripts\Base\ProjectConfig\Editor\ProjectPathConfigEditor.cs" />
     <Compile Include="Assets\Qarth\Scripts\Engine\App\Editor\AppConfigEditor.cs" />
@@ -187,6 +213,19 @@
     <Compile Include="Assets\Qarth\Scripts\Framework\UI\Component\SpriteHandler\Editor\SpritesDataBuilder.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\GameAnalytics\Readme.txt" />
+    <None Include="Assets\GoogleMobileAds\Editor\GoogleMobileAdsDependencies.xml" />
+    <None Include="Assets\PlayServicesResolver\Editor\play-services-resolver_v1.2.59.0.txt" />
+    <None Include="Assets\Plugins\Android\AndroidManifest.xml" />
+    <None Include="Assets\Plugins\Android\GoogleMobileAdsPlugin\AndroidManifest.xml" />
+    <None Include="Assets\Plugins\Android\play-services-ads-license-11.6.0\AndroidManifest.xml" />
+    <None Include="Assets\Plugins\Android\play-services-ads-license-11.6.0\third_party_licenses.txt" />
+    <None Include="Assets\Plugins\Android\play-services-ads-lite-license-11.6.0\AndroidManifest.xml" />
+    <None Include="Assets\Plugins\Android\play-services-ads-lite-license-11.6.0\third_party_licenses.txt" />
+    <None Include="Assets\Plugins\Android\play-services-basement-license-11.6.0\AndroidManifest.xml" />
+    <None Include="Assets\Plugins\Android\play-services-basement-license-11.6.0\third_party_licenses.txt" />
+    <None Include="Assets\Plugins\Android\play-services-gass-license-11.6.0\AndroidManifest.xml" />
+    <None Include="Assets\Plugins\Android\play-services-gass-license-11.6.0\third_party_licenses.txt" />
     <None Include="Assets\Qarth\Plugins\Demigiant\DOTween\DOTween.XML" />
     <None Include="Assets\Qarth\Plugins\Demigiant\DOTween\DOTween43.xml" />
     <None Include="Assets\Qarth\Plugins\Demigiant\DOTween\DOTween46.xml" />
