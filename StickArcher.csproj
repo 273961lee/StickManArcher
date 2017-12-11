@@ -102,8 +102,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="StickArcher.Plugins.csproj">
+      <Project>{E29B0085-C031-877E-C524-1A76CB1BC09D}</Project>
+      <Name>StickArcher.Plugins</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
     <Compile Include="Assets\AdvancedPlayerPrefsWindow\DemoScene\GUIView.cs" />
-    <Compile Include="Assets\EnemyGetHit.cs" />
     <Compile Include="Assets\GameAnalytics\Plugins\Playmaker\SendBusinessEvent.cs" />
     <Compile Include="Assets\GameAnalytics\Plugins\Playmaker\SendDesignEvent.cs" />
     <Compile Include="Assets\GameAnalytics\Plugins\Playmaker\SendErrorEvent.cs" />
@@ -177,9 +182,8 @@
     <Compile Include="Assets\GoogleMobileAds\Platforms\iOS\NativeExpressAdClient.cs" />
     <Compile Include="Assets\GoogleMobileAds\Platforms\iOS\RewardBasedVideoAdClient.cs" />
     <Compile Include="Assets\GoogleMobileAds\Platforms\iOS\Utils.cs" />
-    <Compile Include="Assets\LoadingSlider.cs" />
-    <Compile Include="Assets\MyArrowNew.cs" />
-    <Compile Include="Assets\MyLoadingEvent.cs" />
+    <Compile Include="Assets\Output\Scripts\Demo.cs" />
+    <Compile Include="Assets\Output\Scripts\ParticleAutoDestruction.cs" />
     <Compile Include="Assets\Qarth\Plugins\Demigiant\DOTweenPro\DOTweenAnimation.cs" />
     <Compile Include="Assets\Qarth\Scripts\Base\ByteBuffer\ByteBuffer.cs" />
     <Compile Include="Assets\Qarth\Scripts\Base\CommandNode\CommandGroup.cs" />
@@ -464,6 +468,9 @@
     <Compile Include="Assets\Qarth\Scripts\Framework\UI\Transition\ITransitionProgroess.cs" />
     <Compile Include="Assets\Qarth\Scripts\Framework\UI\Transition\TransitionHelper.cs" />
     <Compile Include="Assets\Qarth\Scripts\Framework\UI\Transition\TransitionPanel.cs" />
+    <Compile Include="Assets\TestRemesh.cs" />
+    <Compile Include="Assets\_Scripts\ADLoaderManager.cs" />
+    <Compile Include="Assets\_Scripts\AF.cs" />
     <Compile Include="Assets\_Scripts\ActiveEvent.cs" />
     <Compile Include="Assets\_Scripts\ArmDir.cs" />
     <Compile Include="Assets\_Scripts\Arrow.cs" />
@@ -474,31 +481,45 @@
     <Compile Include="Assets\_Scripts\Damage.cs" />
     <Compile Include="Assets\_Scripts\DrawLines.cs" />
     <Compile Include="Assets\_Scripts\Enemy.cs" />
+    <Compile Include="Assets\_Scripts\EnemyArrow.cs" />
     <Compile Include="Assets\_Scripts\EnemyDamage.cs" />
+    <Compile Include="Assets\_Scripts\EnemyGetHit.cs" />
+    <Compile Include="Assets\_Scripts\EnemyNew.cs" />
+    <Compile Include="Assets\_Scripts\FireArrow.cs" />
     <Compile Include="Assets\_Scripts\GameMenu.cs" />
     <Compile Include="Assets\_Scripts\IceArrow.cs" />
     <Compile Include="Assets\_Scripts\Items.cs" />
+    <Compile Include="Assets\_Scripts\LoadingSlider.cs" />
     <Compile Include="Assets\_Scripts\MyArrow.cs" />
+    <Compile Include="Assets\_Scripts\MyArrowNew.cs" />
     <Compile Include="Assets\_Scripts\MyBowstring.cs" />
+    <Compile Include="Assets\_Scripts\MyLoadingEvent.cs" />
     <Compile Include="Assets\_Scripts\MyPlayer.cs" />
     <Compile Include="Assets\_Scripts\Player.cs" />
     <Compile Include="Assets\_Scripts\PlayerData.cs" />
     <Compile Include="Assets\_Scripts\PlayerGetHit.cs" />
     <Compile Include="Assets\_Scripts\PowerArrow.cs" />
+    <Compile Include="Assets\_Scripts\RotatRound.cs" />
     <Compile Include="Assets\_Scripts\SceneLoader.cs" />
     <Compile Include="Assets\_Scripts\Shot.cs" />
     <Compile Include="Assets\_Scripts\ShotAnimation.cs" />
     <Compile Include="Assets\_Scripts\Shoter.cs" />
     <Compile Include="Assets\_Scripts\SoundBase.cs" />
     <Compile Include="Assets\_Scripts\StartMenu.cs" />
+    <Compile Include="Assets\_Scripts\TriggerEvents.cs" />
     <Compile Include="Assets\_Scripts\UIManager.cs" />
     <Compile Include="Assets\_Temp\TempPlayer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\GameAnalytics\Readme.txt" />
     <None Include="Assets\GoogleMobileAds\Editor\GoogleMobileAdsDependencies.xml" />
+    <None Include="Assets\Output\Effects\Magic Ice Vol.1\Shaders\ParticleCook-Transparent-Additive-Diffuse.shader" />
+    <None Include="Assets\Output\Effects\Magic Ice Vol.1\Shaders\ParticleCook-Transparent-AlphaBlend-Diffuse-Z.shader" />
+    <None Include="Assets\Output\Effects\Magic Ice Vol.1\Shaders\ParticleCook-Transparent-AlphaBlend-Diffuse.shader" />
+    <None Include="Assets\Output\Readme.txt" />
     <None Include="Assets\PlayServicesResolver\Editor\play-services-resolver_v1.2.59.0.txt" />
     <None Include="Assets\Plugins\Android\AndroidManifest.xml" />
+    <None Include="Assets\Plugins\Android\GoogleMobileAdsDependencies.xml" />
     <None Include="Assets\Plugins\Android\GoogleMobileAdsPlugin\AndroidManifest.xml" />
     <None Include="Assets\Plugins\Android\play-services-ads-license-11.6.0\AndroidManifest.xml" />
     <None Include="Assets\Plugins\Android\play-services-ads-license-11.6.0\third_party_licenses.txt" />

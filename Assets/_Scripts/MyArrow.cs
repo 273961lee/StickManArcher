@@ -9,6 +9,7 @@ public class MyArrow : MonoBehaviour {
     private SpriteRenderer selfPic;
     public ParticleSystem blood;
     private LineRenderer line;
+    private Shoter player;
     // Use this for initialization
     private void FixedUpdate()
     {
@@ -51,6 +52,7 @@ public class MyArrow : MonoBehaviour {
         {
             gameObject.AddComponent<PowerArrow>();
         }
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Shoter>();
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -75,10 +77,15 @@ public class MyArrow : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-
+        if (other.name.Equals("AddLife"))
+        {
+            player.ChangeLife(2);
+        }
+        transform.SetParent(other.transform);
         if (other.CompareTag("Enemy"))
         {
             other.GetComponent<Shoter>().ChangeLife(-5);
         }
+        transform.GetComponentInChildren<SphereCollider>().enabled = false;
     }
 }

@@ -13,7 +13,7 @@ public class ActiveEvent : MonoBehaviour {
     }
     private void OnEnable()
     {
-        print("enable here");
+        //print("enable here");
         if (player!=null)
         {
             player.GetComponent<Shoter>().isGamePlaying = false;

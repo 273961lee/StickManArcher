@@ -4,8 +4,12 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using Qarth;
+using GameAnalyticsSDK;
 
 public class GameMenu : MonoBehaviour {
+    public Image left;
+    public Image right;
+    public Toggle controlButton;
     public int score = 0;
     public int coins = 0;
     public static GameMenu instance;
@@ -20,6 +24,13 @@ public class GameMenu : MonoBehaviour {
     public bool controlMod;
     public GameObject arch;
     public Transform archPos;
+    public int blackArrowNums;
+    public int fireArrowNums;
+    public Text fireArrow;
+    public int iceArrowNums;
+    public Text iceArrow;
+    public Toggle[] arrow = new Toggle[3];
+    public Shoter player;
     [Multiline]
     public string link;
     public GameObject[] guides;
@@ -33,6 +44,7 @@ public class GameMenu : MonoBehaviour {
         {
             Destroy(gameObject);
         }
+        PlayerPrefs.SetInt(PlayerData.CONTROL_MOD,1);
     }
 
     public void LinkToGooglePlay() {
@@ -45,30 +57,87 @@ public class GameMenu : MonoBehaviour {
             PlayerPrefs.SetInt(PlayerData.CONTROL_MOD,1);
             GameObject.FindGameObjectWithTag("Player").GetComponent<Shoter>().controlMode = false;
             DrawLines.instance.isDefaultMod = false;
-            print("切换控制模式");
+            //print("切换控制模式");
         }
         else
         {
             PlayerPrefs.SetInt(PlayerData.CONTROL_MOD,0);
             GameObject.FindGameObjectWithTag("Player").GetComponent<Shoter>().controlMode = true;
             DrawLines.instance.isDefaultMod = true;
-            print("切换控制模式");
+            //print("切换控制模式");
         }
         PlayerPrefs.Save();
     }
 
     public void CloseSound()
     {
-        audioListener.enabled = closeSound;
-        closeSound = !closeSound;
+        audioListener.enabled = !audioListener.enabled;
+        if (audioListener.enabled == true)
+        {
+            PlayerPrefs.SetInt("Sound",1);
+        }
+        else
+        {
+            PlayerPrefs.SetInt("Sound",0);
+        }
+    }
+    //初始化箭的数量
+    public void InitArrowNums() {
+        fireArrowNums = PlayerPrefs.GetInt(PlayerData.BLOOD_ARROW);
+        iceArrowNums = PlayerPrefs.GetInt(PlayerData.ICE_ARROW);
+        fireArrow.text = fireArrowNums.ToString();
+        iceArrow.text = iceArrowNums.ToString();
     }
 
+    public void SwitchArrow(int whichOne) {
+        if (player!=null)
+        {
+            player.SetArrow(whichOne);
+        }
+    }
+
+    public void UpdateArrowNums() {
+        if (player.GetArrow()==0)
+        {
+
+        }
+        else if (player.GetArrow()==1)
+        {
+            fireArrowNums -= 1;
+            fireArrow.text = fireArrowNums.ToString();
+        }
+        else
+        {
+            iceArrowNums -= 1;
+            iceArrow.text = iceArrowNums.ToString();
+        }
+    }
+
+    public void SavePlayerData() {
+        int tempCoin = PlayerPrefs.GetInt(PlayerData.COINS) + coins;
+        PlayerPrefs.SetInt(PlayerData.COINS, tempCoin);
+        PlayerPrefs.SetInt(PlayerData.BLOOD_ARROW,fireArrowNums);
+        PlayerPrefs.SetInt(PlayerData.ICE_ARROW, iceArrowNums);
+    }
     private void Start()
     {
+        if (!PlayerPrefs.HasKey("Sound"))
+        {
+            PlayerPrefs.SetInt("Sound",1);
+        }
+        if (PlayerPrefs.GetInt("Sound")==1)
+        {
+            audioListener.enabled = true;
+        }
+        else
+        {
+            audioListener.enabled = false;
+        }
+        GameAnalytics.NewDesignEvent("PlayGame",2);
         GameObject tempPlayer = GameObject.FindGameObjectWithTag("Player");
         audioListener = Camera.main.GetComponent<AudioListener>();
         arch = tempPlayer.transform.Find("ArmRM").gameObject;
-        archPos = tempPlayer.transform.root.Find("ArchPos");
+        archPos = tempPlayer.transform.Find("ArchPos");
         print(archPos.name);
         if (!PlayerPrefs.HasKey(PlayerData.CONTROL_MOD))
         {
@@ -81,6 +150,8 @@ public class GameMenu : MonoBehaviour {
         scoreText.text = "0";
         powerBar.fillAmount = 0.02f;
         power = 0;
+        InitArrowNums();
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Shoter>();
     }
     public void PowerGrow() {
         if (score%10==0)
@@ -102,19 +173,21 @@ public class GameMenu : MonoBehaviour {
     }
     
     public void ResetPlayerAche() {
-        arch.transform.eulerAngles = archPos.eulerAngles;
-        arch.transform.position = archPos.position;
+        GameAnalyticsSDK.GameAnalytics.NewDesignEvent("RestartGame");
+        if (arch!=null)
+        {
+            arch.transform.eulerAngles = archPos.eulerAngles;
+            arch.transform.position = archPos.position;
+        }
     }
 
     public void GameOver() {
         gameover.SetActive(true);
-        GameAnalyticsSDK.GameAnalytics.NewDesignEvent("PlayerScore",score);
+        GameAnalytics.NewDesignEvent("GameOverWithScore",score);
         CraetEnemy.instance.isOn = false;
         gameOverTips.text = "You Got  " + score + "  score!   Try again?";
         coins = (int)(score*0.1f);
-        int tempCoin = PlayerPrefs.GetInt(PlayerData.COINS)+coins;
-        PlayerPrefs.SetInt(PlayerData.COINS,tempCoin);
-        PlayerPrefs.Save();
+        SavePlayerData();
     }
     public void GoHome() {
         SceneManager.LoadScene("StartMenu");
@@ -137,7 +210,8 @@ public class GameMenu : MonoBehaviour {
     }
 
     public void Continue() {
-        Time.timeScale = 1;
+        Time.timeScale = 1.0f;
+        player.isGamePlaying = true;
         ResetPlayerAche();
     }
 
@@ -146,11 +220,17 @@ public class GameMenu : MonoBehaviour {
     }
 
     public void Press() {
-        Time.timeScale = 0.0001f;
+        player.isGamePlaying = false;
+        Time.timeScale = 0.00001f;
     }
     public void AddScore(int value) {
         score += value;
         PowerGrow();
         scoreText.text = score.ToString();
+    }
+
+    private void OnApplicationQuit()
+    {
+        GameAnalytics.NewDesignEvent("ExitGameWithPlayingTime",Time.time);
     }
 }

@@ -91,6 +91,8 @@ public class Shoter : MonoBehaviour {
         SwichPhyics(false);
         if (isPlayer)
         {
+            AppsFlyer.trackEvent("Dead with score",GameMenu.instance.score.ToString());
+            AppsFlyer.trackEvent("GameOnceSpeedTime",Time.time.ToString());
             GameMenu.instance.GameOver();
         }
         if (!isPlayer)
@@ -107,6 +109,25 @@ public class Shoter : MonoBehaviour {
         shotSpeed = Vector3.Distance(tempPoint[0],tempPoint[1])/Screen.width*35f;
     }
 
+    public void SetArrow(int sign) {
+        arrow = arrows[sign];
+    }
+    public int GetArrow() {
+        int i;
+        if (arrow==arrows[0])
+        {
+            i = 0;
+        }
+        else if (arrow==arrows[1])
+        {
+            i = 1;
+        }
+        else
+        {
+            i = 2;
+        }
+        return i;
+    }
     public void Shot() {
         Rigidbody2D tempRig = arrowTemp.GetComponent<Rigidbody2D>();
         //print("get rig");
@@ -123,17 +144,40 @@ public class Shoter : MonoBehaviour {
         {
             arrowTemp = Instantiate(arrow, arrowTexture.transform.position, arrowTexture.transform.rotation);
             arrowTemp.transform.SetParent(arch);
+            GameMenu.instance.UpdateArrowNums();
         }
         else
         {
             arrowTemp = Instantiate(arrow, arrowTexture.transform.position, arrowTexture.transform.rotation);
             arrowTemp.transform.SetParent(arch);
+            GameMenu.instance.UpdateArrowNums();
         }
         //print("shot");
     }
+
+    public bool HaveArrow() {
+        bool value;
+        if (GetArrow()==1&&GameMenu.instance.fireArrowNums>0)
+        {
+            value = true;
+        }
+        else if (GetArrow()==2&&GameMenu.instance.iceArrowNums>0)
+        {
+            value = true;
+        }
+        else if (GetArrow()==0)
+        {
+            value = true;
+        }
+        else
+        {
+            value = false;
+        }
+        return value;
+    }
     //shot mod ,true for right hand else is left hand
     public void Shot(bool defaultModle) {
-        if (defaultModle==true)
+        if (defaultModle)
         {
             Shot();
         }
@@ -161,6 +205,7 @@ public class Shoter : MonoBehaviour {
             //{
                 arrowTemp = Instantiate(arrow, arrowTexture.transform.position, arrowTexture.transform.rotation);
                 arrowTemp.transform.SetParent(arch);
+                GameMenu.instance.UpdateArrowNums();
             //}
 
         }
@@ -175,7 +220,6 @@ public class Shoter : MonoBehaviour {
         arm.transform.DOLookAt(new Vector3(player.transform.position.x,player.transform.position.y+2,0),1.0f);
         yield return new WaitForSeconds(2);
         Shot(1);
-        StartCoroutine(LoopShot());
     }
     //enemy shot function
     public void Shot(int type) {
@@ -230,7 +274,7 @@ public class Shoter : MonoBehaviour {
         }
         else
         {
-            StartCoroutine(CraetItem());
+            //StartCoroutine(CraetItem());
         }
         //print(isPlayer);
 	}
@@ -239,13 +283,6 @@ public class Shoter : MonoBehaviour {
         foreach (HingeJoint2D item in joints)
         {
             item.enabled = !args;
-            //if (!isPlayer)
-            //{
-            //    item.useMotor = !args;
-            //    JointMotor2D motor = item.motor;
-            //    motor.motorSpeed = Random.Range(-30, 30);
-            //    item.motor = motor;
-            //}
         }
         foreach (Rigidbody2D item in rigs)
         {
@@ -265,6 +302,13 @@ public class Shoter : MonoBehaviour {
         }
     }
     // Update is called once per frame
+    public void SwitchArrow(int which) {
+        if (which>arrows.Length)
+        {
+            which = arrows.Length - 1;
+        }
+        arrow = arrows[which];
+    }
     void Update () {
         Debug.DrawLine(arch.position,aimDir,Color.green);
         if (isGamePlaying)
@@ -335,7 +379,7 @@ public class Shoter : MonoBehaviour {
                         Aim(true);
                     }
                 }
-                if (Input.GetMouseButtonUp(0) && isTouch)
+                if (Input.GetMouseButtonUp(0) && isTouch&&HaveArrow())
                 {
                     tempPoint.Add(touchPoint);
                     ChangShotSpeed();

@@ -160,8 +160,15 @@
     <Reference Include="DOTweenProEditor">
       <HintPath>Assets\Qarth\Plugins\Demigiant\DOTweenPro\Editor\DOTweenProEditor.dll</HintPath>
     </Reference>
+    <Reference Include="Assembly-UnityScript">
+      <HintPath>Library\ScriptAssemblies\Assembly-UnityScript.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="StickArcher.Plugins.csproj">
+      <Project>{E29B0085-C031-877E-C524-1A76CB1BC09D}</Project>
+      <Name>StickArcher.Plugins</Name>
+    </ProjectReference>
     <ProjectReference Include="StickArcher.csproj">
       <Project>{9EF5F4FB-FD2F-690C-4BF8-FFF006E1DC3C}</Project>
       <Name>StickArcher</Name>
@@ -215,8 +222,13 @@
   <ItemGroup>
     <None Include="Assets\GameAnalytics\Readme.txt" />
     <None Include="Assets\GoogleMobileAds\Editor\GoogleMobileAdsDependencies.xml" />
+    <None Include="Assets\Output\Effects\Magic Ice Vol.1\Shaders\ParticleCook-Transparent-Additive-Diffuse.shader" />
+    <None Include="Assets\Output\Effects\Magic Ice Vol.1\Shaders\ParticleCook-Transparent-AlphaBlend-Diffuse-Z.shader" />
+    <None Include="Assets\Output\Effects\Magic Ice Vol.1\Shaders\ParticleCook-Transparent-AlphaBlend-Diffuse.shader" />
+    <None Include="Assets\Output\Readme.txt" />
     <None Include="Assets\PlayServicesResolver\Editor\play-services-resolver_v1.2.59.0.txt" />
     <None Include="Assets\Plugins\Android\AndroidManifest.xml" />
+    <None Include="Assets\Plugins\Android\GoogleMobileAdsDependencies.xml" />
     <None Include="Assets\Plugins\Android\GoogleMobileAdsPlugin\AndroidManifest.xml" />
     <None Include="Assets\Plugins\Android\play-services-ads-license-11.6.0\AndroidManifest.xml" />
     <None Include="Assets\Plugins\Android\play-services-ads-license-11.6.0\third_party_licenses.txt" />

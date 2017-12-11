@@ -13,7 +13,8 @@ public class StartMenu : MonoBehaviour {
     public GameObject settingMenu;
     public GameObject shopMenu;
     public string[] scenesName;
-    public Toggle[] toggles;
+    public Button[] toggles;
+    private int[] arrowNums=new int[2];
     public enum ArrowType
     {
         blackArrow=0,
@@ -31,10 +32,18 @@ public class StartMenu : MonoBehaviour {
     public ArrowType arrowType = new ArrowType();
 	// Use this for initialization
 	void Start () {
-        GameAnalytics.NewDesignEvent("start log",1);
+        GameAnalytics.NewDesignEvent("Start_Scene",1);
+        AppsFlyer.trackEvent("","MainGame");
+        if (!PlayerPrefs.HasKey(PlayerData.BLOOD_ARROW))
+        {
+            PlayerPrefs.SetInt(PlayerData.BLOOD_ARROW,0);
+        }
+        arrowNums[0] = PlayerPrefs.GetInt(PlayerData.BLOOD_ARROW);
+        arrowNums[1] = PlayerPrefs.GetInt(PlayerData.ICE_ARROW);
         UpdateCoins();
-        GetArrowType();
+        //GetArrowType();
         UpdateShop();
+        print("coins :"+coins);
 	}
     
 
@@ -48,27 +57,36 @@ public class StartMenu : MonoBehaviour {
     }
 
     public void UpdateShop() {
-        toggles[1].interactable = coins > 20;
-        toggles[2].interactable = coins > 40;
-        toggles[0].isOn = false;
-        toggles[1].isOn = false;
-        toggles[2].isOn = false;
-        toggles[(int)arrowType].isOn = true;
+        if (coins>=20&&coins<40)
+        {
+            toggles[0].interactable = true;
+        }
+        else if (coins>=40)
+        {
+            toggles[1].interactable = true;
+        }
+        else
+        {
+            for (int i = 0; i < toggles.Length; i++)
+            {
+                toggles[i].interactable = false;
+            }
+        }
     }
 
-    public void GetArrowType() {
-        arrowType = (ArrowType)PlayerPrefs.GetInt(PlayerData.ARROW_TYPE);
-    }
-    public void SetArrowType(ArrowType type) {
-        PlayerPrefs.SetInt(PlayerData.ARROW_TYPE,(int)type);
-        arrowType = type;
-        PlayerPrefs.Save();
-    }
-    public void SetArrowType(int type) {
-        PlayerPrefs.SetInt(PlayerData.ARROW_TYPE, type);
-        arrowType=(ArrowType)type;
-        PlayerPrefs.Save();
-    }
+    //public void GetArrowType() {
+    //    arrowType = (ArrowType)PlayerPrefs.GetInt(PlayerData.ARROW_TYPE);
+    //}
+    //public void SetArrowType(ArrowType type) {
+    //    PlayerPrefs.SetInt(PlayerData.ARROW_TYPE,(int)type);
+    //    arrowType = type;
+    //    PlayerPrefs.Save();
+    //}
+    //public void SetArrowType(int type) {
+    //    PlayerPrefs.SetInt(PlayerData.ARROW_TYPE, type);
+    //    arrowType=(ArrowType)type;
+    //    PlayerPrefs.Save();
+    //}
 
     public void ChangeCoins(int cost) {
         if (coins<cost)
@@ -81,6 +99,7 @@ public class StartMenu : MonoBehaviour {
             coinsNum.text = coins.ToString();
             PlayerPrefs.SetInt(PlayerData.COINS, coins);
             PlayerPrefs.Save();
+            UpdateCoins();
         }
     }
 
@@ -93,8 +112,23 @@ public class StartMenu : MonoBehaviour {
         SceneManager.LoadScene(scenesName[0]);
     }
 
-    public void SwitchArrow(int type) {
-        arrowType = (ArrowType)type;
-        PlayerPrefs.SetInt(PlayerData.ARROW_TYPE,type);
+    public void AddArrows(int type) {
+        arrowNums[type] += 20;
+        switch (type)
+        {
+            case 0:
+                PlayerPrefs.SetInt(PlayerData.BLOOD_ARROW, arrowNums[type]);
+                break;
+            case 1:
+                PlayerPrefs.SetInt(PlayerData.ICE_ARROW, arrowNums[type]);
+                break;
+            default:
+                break;
+        }
+        UpdateShop();
+    }
+
+    public void ExitGame() {
+        Application.Quit();
     }
 }
