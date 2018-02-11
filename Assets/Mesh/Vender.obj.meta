@@ -37,7 +37,32 @@ ModelImporter:
     4300004: pCube2
     4300006: Screen
     4300008: Wall
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BaffleMat
+    second: {fileID: 2100000, guid: 377094b0a0d9a444d8661a25d0d5733e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ScreenMat
+    second: {fileID: 2100000, guid: 377094b0a0d9a444d8661a25d0d5733e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WallMat
+    second: {fileID: 2100000, guid: 377094b0a0d9a444d8661a25d0d5733e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pCube1Mat
+    second: {fileID: 2100000, guid: 377094b0a0d9a444d8661a25d0d5733e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pCube2Mat
+    second: {fileID: 2100000, guid: 377094b0a0d9a444d8661a25d0d5733e, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
