@@ -1,0 +1,188 @@
+fileFormatVersion: 2
+guid: 67960741a88e0a34398821ab9ca46881
+timeCreated: 1518321392
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Baffle
+    100002: //RootNode
+    100004: Pipe
+    100006: S3_Screw
+    100008: Screen
+    100010: Screw_S1
+    100012: Screw_S2
+    100014: Screw_S4
+    100016: Wall
+    100018: Wire
+    400000: Baffle
+    400002: //RootNode
+    400004: Pipe
+    400006: S3_Screw
+    400008: Screen
+    400010: Screw_S1
+    400012: Screw_S2
+    400014: Screw_S4
+    400016: Wall
+    400018: Wire
+    2100000: BaffleMat
+    2100002: PipeMat
+    2100004: S3_ScrewMat
+    2100006: ScreenMat
+    2100008: Screw_S1Mat
+    2100010: Screw_S2Mat
+    2100012: Screw_S4Mat
+    2100014: WallMat
+    2100016: WireMat
+    2300000: Baffle
+    2300002: Pipe
+    2300004: S3_Screw
+    2300006: Screen
+    2300008: Screw_S1
+    2300010: Screw_S2
+    2300012: Screw_S4
+    2300014: Wall
+    2300016: Wire
+    3300000: Baffle
+    3300002: Pipe
+    3300004: S3_Screw
+    3300006: Screen
+    3300008: Screw_S1
+    3300010: Screw_S2
+    3300012: Screw_S4
+    3300014: Wall
+    3300016: Wire
+    4300000: Baffle
+    4300002: Pipe
+    4300004: S3_Screw
+    4300006: Screen
+    4300008: Screw_S1
+    4300010: Screw_S2
+    4300012: Screw_S4
+    4300014: Wall
+    4300016: Wire
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BaffleMat
+    second: {fileID: 2100000, guid: 04caddeff9a81f24d8b96ed18fd443cb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PipeMat
+    second: {fileID: 2100000, guid: 04caddeff9a81f24d8b96ed18fd443cb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: S3_ScrewMat
+    second: {fileID: 2100000, guid: 04caddeff9a81f24d8b96ed18fd443cb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ScreenMat
+    second: {fileID: 2100000, guid: 04caddeff9a81f24d8b96ed18fd443cb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Screw_S1Mat
+    second: {fileID: 2100000, guid: 04caddeff9a81f24d8b96ed18fd443cb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Screw_S2Mat
+    second: {fileID: 2100000, guid: 04caddeff9a81f24d8b96ed18fd443cb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Screw_S4Mat
+    second: {fileID: 2100000, guid: 04caddeff9a81f24d8b96ed18fd443cb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WallMat
+    second: {fileID: 2100000, guid: 04caddeff9a81f24d8b96ed18fd443cb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WireMat
+    second: {fileID: 2100000, guid: 04caddeff9a81f24d8b96ed18fd443cb, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
