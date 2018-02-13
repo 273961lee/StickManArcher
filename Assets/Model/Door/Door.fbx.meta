@@ -1,0 +1,246 @@
+fileFormatVersion: 2
+guid: 56e51de19e38d2940a65280773716f62
+timeCreated: 1518523892
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Bottom
+    100002: DL
+    100004: //RootNode
+    100006: Door_L
+    100008: Door_R
+    100010: DR
+    100012: Glass
+    100014: joint1
+    100016: joint10
+    100018: joint2
+    100020: joint3
+    100022: joint4
+    100024: joint5
+    100026: joint6
+    100028: P1
+    100030: P2
+    100032: P3
+    100034: P4
+    100036: pipes
+    100038: Pole
+    100040: S1
+    100042: S1 1
+    100044: S10
+    100046: S11
+    100048: S12
+    100050: S13
+    100052: S14
+    100054: S15
+    100056: S16
+    100058: S2
+    100060: S2 1
+    100062: S3
+    100064: S3 1
+    100066: S4
+    100068: S4 1
+    100070: S5
+    100072: S6
+    100074: S7
+    100076: S8
+    100078: S9
+    100080: shield
+    100082: Structure
+    100084: VA
+    100086: Valve
+    100088: Wall
+    400000: Bottom
+    400002: DL
+    400004: //RootNode
+    400006: Door_L
+    400008: Door_R
+    400010: DR
+    400012: Glass
+    400014: joint1
+    400016: joint10
+    400018: joint2
+    400020: joint3
+    400022: joint4
+    400024: joint5
+    400026: joint6
+    400028: P1
+    400030: P2
+    400032: P3
+    400034: P4
+    400036: pipes
+    400038: Pole
+    400040: S1
+    400042: S1 1
+    400044: S10
+    400046: S11
+    400048: S12
+    400050: S13
+    400052: S14
+    400054: S15
+    400056: S16
+    400058: S2
+    400060: S2 1
+    400062: S3
+    400064: S3 1
+    400066: S4
+    400068: S4 1
+    400070: S5
+    400072: S6
+    400074: S7
+    400076: S8
+    400078: S9
+    400080: shield
+    400082: Structure
+    400084: VA
+    400086: Valve
+    400088: Wall
+    2100000: lambert2SG1
+    2100002: lambert3
+    4300000: Door_R
+    4300002: Door_L
+    4300004: Wall
+    4300006: Glass
+    4300008: Valve
+    4300010: Pole
+    4300012: Bottom
+    4300014: Structure
+    4300016: P1
+    4300018: P2
+    4300020: P3
+    4300022: P4
+    4300024: S1
+    4300026: S2
+    4300028: S3
+    4300030: S4
+    4300032: S5
+    4300034: S6
+    4300036: S7
+    4300038: S8
+    4300040: S9
+    4300042: S10
+    4300044: S11
+    4300046: S12
+    4300048: S13
+    4300050: S14
+    4300052: S15
+    4300054: S16
+    9500000: //RootNode
+    13700000: Bottom
+    13700002: Door_L
+    13700004: Door_R
+    13700006: Glass
+    13700008: P1
+    13700010: P2
+    13700012: P3
+    13700014: P4
+    13700016: Pole
+    13700018: S1
+    13700020: S10
+    13700022: S11
+    13700024: S12
+    13700026: S13
+    13700028: S14
+    13700030: S15
+    13700032: S16
+    13700034: S2
+    13700036: S3
+    13700038: S4
+    13700040: S5
+    13700042: S6
+    13700044: S7
+    13700046: S8
+    13700048: S9
+    13700050: Structure
+    13700052: Valve
+    13700054: Wall
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert2SG1
+    second: {fileID: 2100000, guid: 48b42721f6ad7364a99a864195efc3c3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert3
+    second: {fileID: 2100000, guid: 48b42721f6ad7364a99a864195efc3c3, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 139
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
